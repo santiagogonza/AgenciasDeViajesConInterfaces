@@ -1,3 +1,10 @@
+/*
+autor: Gonzalo Santiago Garcia
+fecha de creación: 1 de mayo del 2022
+fecha de actualización: 9 de junio del 2022 
+descripción: declaración de los atributos con sus get y set de cada atributo 
+por lo que se crea los atributos de la clase Cliente
+ */
 package pojo;
 
 public class Cliente {
@@ -7,10 +14,10 @@ public class Cliente {
     private String telefono;
     private String viaje;
 
-    public Cliente(){
-        
+    public Cliente() {
+
     }
-    
+
     public Cliente(String nombre, String apellidos, String telefono, String viaje) {
         this.nombre = nombre;
         this.apellidos = apellidos;

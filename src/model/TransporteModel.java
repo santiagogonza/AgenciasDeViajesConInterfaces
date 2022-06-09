@@ -1,41 +1,69 @@
+/*
+autor: Gonzalo Santiago Garcia
+fecha de creación: 1 de junio del 2022
+fecha de actualización: 9 de junio del 2022 
+descripción: contiene las funciones como crear, obtener, eliminar, actualizar y
+ mostrar
+ */
 package model;
 
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 import pojo.Transporte;
 
 public class TransporteModel {
 
-    public List<Transporte> crearTransporte(List<Transporte> lista1,
-            Transporte transporte) {
-        lista1.add(transporte);
-        return lista1;
+    public void crearTransporte(List<Transporte> lista, Transporte transporte) {
+        lista.add(transporte);
     }
 
     // creamos el metodo obtenerTransporte
-    public Transporte obtenerTransporte(List<Transporte> lista, long id) {
+    public Transporte obtenerTransporte(List<Transporte> lista, int codigo) {
         for (Transporte transporte : lista) {
             /* hace la comparación de de ide trasnporte si es igual al id
             entonces retorna el objeto transporte
             si no encuentra el id retorna null
              */
-            if (transporte.getIdTranspor() == id) {
+            if (transporte.getIdTranspor() == codigo) {
                 return transporte;
             }
+
         }
         return null;
     }
+    //función eliminar
 
-    // aqui llamamos a los métodos de la clase transporte y esos métodos lo imprimos
-    // en pantalla
-    public void mostrarTransporte(List<Transporte> lista1) {
-        System.out.println("--------------------------------------------------------------");
-        System.out.println("|  Id       |  Nombre de transporte  |  Número de asiento    |");
-        System.out.println("--------------------------------------------------------------");
-        for (Transporte transporte : lista1) {
-            System.out.printf("| %9d | %21s  | %21d |",
-                    transporte.getIdTranspor(), transporte.getNombreTransport(),
-                    transporte.getNumAsiento());
-            System.out.println("\n--------------------------------------------------------------");
+    public void eliminarTransporte(List<Transporte> lista, String nom) {
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getNombreTransport().compareTo(nom) == 0) {
+                lista.remove(i);
+                break;
+            }
         }
     }
+
+    //función actualizar
+    public void actualizarTransporte(List<Transporte> lista, Transporte transport) {
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getNombreTransport().equals(transport.getNombreTransport())) {
+                lista.set(i, transport);
+                break;
+            }
+        }
+    }
+
+    //función mostrar
+    public void mostrarTransporte(List<Transporte> lista, DefaultTableModel modelo) {
+        modelo.setRowCount(0);
+        for (int i = 0; i < lista.size(); i++) {
+            Object[] fila = new Object[4];
+            fila[0] = lista.get(i).getIdTranspor();
+            fila[1] = lista.get(i).getNombreTransport();
+            fila[2] = lista.get(i).getNumAsiento();
+
+            modelo.addRow(fila);
+        }
+
+    }
+
 }

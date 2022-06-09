@@ -1,8 +1,16 @@
+/*
+autor: Gonzalo Santiago Garcia
+fecha de creación: 1 de junio del 2022
+fecha de actualización: 9 de junio del 2022 
+descripción: creo la ventana login 
+ */
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
-public class Login extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame implements ActionListener {
 
     /**
      * Creates new form Login
@@ -11,7 +19,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setSize(436, 436);
         setLocationRelativeTo(null);
-        setResizable(false);
+        // setResizable(false);
 
     }
 
@@ -24,7 +32,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanelLogin = new javax.swing.JPanel();
         jLabel1Usuario = new javax.swing.JLabel();
         jLabel2Paword = new javax.swing.JLabel();
         usuario = new javax.swing.JTextField();
@@ -35,23 +43,25 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(51, 0, 51));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelLogin.setBackground(new java.awt.Color(51, 0, 51));
+        jPanelLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1Usuario.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1Usuario.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel1Usuario.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1Usuario.setText("Usuario");
-        jPanel1.add(jLabel1Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
+        jPanelLogin.add(jLabel1Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
 
         jLabel2Paword.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel2Paword.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2Paword.setText("Password");
-        jPanel1.add(jLabel2Paword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
+        jPanelLogin.add(jLabel2Paword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
 
         usuario.setText("gonzalo");
-        jPanel1.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 170, -1));
+        jPanelLogin.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 170, -1));
 
         pasword.setText("123");
         pasword.addActionListener(new java.awt.event.ActionListener() {
@@ -59,45 +69,48 @@ public class Login extends javax.swing.JFrame {
                 paswordActionPerformed(evt);
             }
         });
-        jPanel1.add(pasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 170, -1));
+        jPanelLogin.add(pasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 170, -1));
 
         jButtonIngresar.setBackground(new java.awt.Color(255, 255, 0));
         jButtonIngresar.setText("Ingresar");
+        jButtonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIngresarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
+        jPanelLogin.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+        jPanelLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
         jButtonSalir.setBackground(new java.awt.Color(255, 255, 0));
         jButtonSalir.setText("Salir");
+        jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
+        jPanelLogin.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descarga.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 400));
+        jLabel2.setDoubleBuffered(true);
+        jPanelLogin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 400));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -118,14 +131,16 @@ public class Login extends javax.swing.JFrame {
         if (this.usuario.getText().equals(usuario)) {
             if (this.pasword.getText().equals(password)) {
                 prin.setVisible(true);
+                jPanelLogin.setVisible(false);
+                // oculta la ventana del login
+                this.hide();
             } else {
                 JOptionPane.showMessageDialog(null, "La contreseña es incorrecta!",
                         "Error", JOptionPane.ERROR_MESSAGE);
-
             }
         } else {
 
-            JOptionPane.showMessageDialog(null, "El usuario es incorrecto!", 
+            JOptionPane.showMessageDialog(null, "El usuario es incorrecto!",
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
 
@@ -168,6 +183,7 @@ public class Login extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
+
             }
         });
     }
@@ -179,8 +195,17 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1Usuario;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel2Paword;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelLogin;
     private javax.swing.JPasswordField pasword;
     private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        Object evt = ae.getSource();
+        if (evt.equals(jButtonIngresar)) {
+            jPanelLogin.setVisible(false);
+
+        }
+    }
 }

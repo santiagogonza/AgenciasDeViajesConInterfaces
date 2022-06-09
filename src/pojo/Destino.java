@@ -1,7 +1,7 @@
 /*
  @author: Gonzalo santiago Garcia
-Fecha de creación: 25 de mayo del 2022
-Fecha de actualización: ----
+Fecha de creación: 1 junio del 2022
+Fecha de actualización:9 de junio del 2022 
 Descripción: En esta parte del programa contenera el pojo Destino
  que es importante dentro del proyecto. por lo tanto, en está clase se declarán
 todos los atributos de la clase Destino.
@@ -20,7 +20,8 @@ public class Destino {
 
     }
 
-    public Destino(long idlugar, String nombre, String direccion, String telefono, int codigoPost) {
+    public Destino(long idlugar, String nombre, String direccion,
+            String telefono, int codigoPost) {
         this.idlugar = idlugar;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -67,4 +68,5 @@ public class Destino {
     public void setCodigoPost(int codigoPost) {
         this.codigoPost = codigoPost;
     }
+
 }

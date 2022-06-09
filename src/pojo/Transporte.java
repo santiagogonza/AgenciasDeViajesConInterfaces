@@ -1,6 +1,6 @@
 /*
  * @autor: Gonzalo Santiago Garcia
- * Fecha de creación: 25 mayo del 2022
+ * Fecha de creación: 01 de mayo del 2022
  * fecha de actualización: 9 de mayo 2022
  * Descripción: En la clase Transporte se declaran los atributos de esa clase
    y además se declara sus métodos get y set de cada atributo.
@@ -8,18 +8,21 @@
 package pojo;
 
 public class Transporte {
+
     private long idTranspor;
     private int numAsiento;
     private String nombreTransport;
+    private int precio;
 
-    public Transporte(){
-        
+    public Transporte() {
+
     }
-    
-    public Transporte(long idTranspor, int numAsiento, String nombreTransport) {
+
+    public Transporte(long idTranspor, int numAsiento, String nombreTransport, int precio) {
         this.idTranspor = idTranspor;
         this.numAsiento = numAsiento;
         this.nombreTransport = nombreTransport;
+        this.precio = precio;
     }
 
     public long getIdTranspor() {
@@ -44,5 +47,13 @@ public class Transporte {
 
     public void setNombreTransport(String nombreTransport) {
         this.nombreTransport = nombreTransport;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 }
