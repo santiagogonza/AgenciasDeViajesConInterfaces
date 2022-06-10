@@ -53,15 +53,15 @@ public class Login extends javax.swing.JFrame implements ActionListener {
         jLabel1Usuario.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel1Usuario.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1Usuario.setText("Usuario");
-        jPanelLogin.add(jLabel1Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
+        jPanelLogin.add(jLabel1Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
         jLabel2Paword.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel2Paword.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2Paword.setText("Password");
-        jPanelLogin.add(jLabel2Paword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
+        jPanelLogin.add(jLabel2Paword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
 
         usuario.setText("gonzalo");
-        jPanelLogin.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 170, -1));
+        jPanelLogin.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 170, -1));
 
         pasword.setText("123");
         pasword.addActionListener(new java.awt.event.ActionListener() {
@@ -69,36 +69,36 @@ public class Login extends javax.swing.JFrame implements ActionListener {
                 paswordActionPerformed(evt);
             }
         });
-        jPanelLogin.add(pasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 170, -1));
+        jPanelLogin.add(pasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 170, -1));
 
         jButtonIngresar.setBackground(new java.awt.Color(255, 255, 0));
-        jButtonIngresar.setText("Ingresar");
+        jButtonIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/ingresar.png"))); // NOI18N
         jButtonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIngresarActionPerformed(evt);
             }
         });
-        jPanelLogin.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
+        jPanelLogin.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, 40));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user.png"))); // NOI18N
-        jPanelLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+        jPanelLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         jButtonSalir.setBackground(new java.awt.Color(255, 255, 0));
-        jButtonSalir.setText("Salir");
+        jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
         jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        jPanelLogin.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
+        jPanelLogin.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, -1, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descarga.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jLabel2.setDoubleBuffered(true);
-        jPanelLogin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 400));
+        jLabel2.setRequestFocusEnabled(false);
+        jPanelLogin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -45,14 +45,14 @@ public class Reservacion extends javax.swing.JFrame {
         jLabel1.setText("Ingrese el Id del transporte que desea viajar ");
         jPanelReservacion.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salir.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanelReservacion.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 390, 50, 30));
+        jPanelReservacion.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 380, 70, 40));
 
         jTextFielSolicitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
