@@ -4,7 +4,7 @@ fecha de creación: 1 de junio del 2022
 fecha de actualización: 9 de junio del 2022 
 descripción: creo la ventana principal donde presento la lista de los 
  lugares que tengo de recomendocion de miahuatlán 
-*/
+ */
 package view;
 
 import controller.DestinoController;
@@ -333,7 +333,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_openMenuItemActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            // TODO add your handling code here:
+        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -357,21 +357,20 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
 
         // reservacion
-
         new Reservacion().setVisible(true);
         this.hide();
     }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //agregar
-       
+
         Destino dest = new Destino();
-        dest.setIdlugar(listaDestino.size()+1);
+        dest.setIdlugar(listaDestino.size() + 1);
         dest.setNombre(jTextFielNom.getText());
         dest.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
         dest.setDireccion(jTextFielDir.getText());
         dest.setTelefono(jTextFielTel.getText());
-        
+
         jTextFielNom.setText("");
         jTextFielCp.setText("");
         jTextFielDir.setText("");
@@ -379,7 +378,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
         DestinoC.crearDestino(listaDestino, dest);
         DestinoC.mostrarDestino(listaDestino, modelo);
-  
+
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -395,21 +394,21 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         // TODO add your handling code here:
         //actualizar
         Destino des3 = DestinoC.obtenerUnDestino(listaDestino, Integer.parseInt(jTextFielCp.getText()));
-        Destino des=new Destino();
+        Destino des = new Destino();
         des.setIdlugar(des3.getIdlugar());
-        
+
         des.setNombre(jTextFielNom.getText());
         des.setDireccion(jTextFielDir.getText());
         des.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
         des.setTelefono(jTextFielTel.getText());
         DestinoC.actualizarDestino(listaDestino, des);
         DestinoC.mostrarDestino(listaDestino, modelo);
-        
+
         jTextFielNom.setText("");
         jTextFielCp.setText("");
         jTextFielDir.setText("");
         jTextFielTel.setText("");
-        
+
         jTextFielNom.setEditable(true);
         jTextFielCp.setEditable(true);
         jTextFielDir.setEditable(true);
@@ -431,13 +430,13 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         // editar
-       // jTextFielNom.setEditable(false);
-       jTextFielCp.setEditable(false);
-       
-       jTextFielNom.setText(jTable1.getValueAt(jTable1.getSelectedRow(),1).toString());
-       jTextFielCp.setText(jTable1.getValueAt(jTable1.getSelectedRow(),2).toString());
-       jTextFielDir.setText(jTable1.getValueAt(jTable1.getSelectedRow(),3).toString());
-       jTextFielTel.setText(jTable1.getValueAt(jTable1.getSelectedRow(),4).toString());   
+        // jTextFielNom.setEditable(false);
+        jTextFielCp.setEditable(false);
+
+        jTextFielNom.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
+        jTextFielCp.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
+        jTextFielDir.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
+        jTextFielTel.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked

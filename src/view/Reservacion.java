@@ -1,6 +1,4 @@
-
 package view;
-
 
 public class Reservacion extends javax.swing.JFrame {
 
@@ -12,7 +10,6 @@ public class Reservacion extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -124,12 +121,12 @@ public class Reservacion extends javax.swing.JFrame {
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
         // TODO add your handling code here:
-          new TransporteView().setVisible(true);
+        new TransporteView().setVisible(true);
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
         // TODO add your handling code here:
-          new Principal().setVisible(true);
+        new Principal().setVisible(true);
     }//GEN-LAST:event_openMenuItemActionPerformed
 
     private void jTextFielSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielSolicitarActionPerformed

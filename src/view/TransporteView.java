@@ -32,6 +32,7 @@ public class TransporteView extends javax.swing.JFrame {
         mostrarTransporte();
 
     }
+
     // funcion de mostrarTransporte
     public void mostrarTransporte() {
         model.setRowCount(0);
@@ -44,7 +45,7 @@ public class TransporteView extends javax.swing.JFrame {
             model.addRow(fila);
         }
     }
-    
+
     // función de agregarTransporte
     public void agregarTransportes() {
         Transporte trans = new Transporte();
@@ -195,7 +196,7 @@ public class TransporteView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 520, 190));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 520, 190));
         jPanel1.add(jTextFielAcien, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 170, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descarga.jpg"))); // NOI18N
@@ -235,9 +236,7 @@ public class TransporteView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,7 +273,7 @@ public class TransporteView extends javax.swing.JFrame {
         Transporte trasn = new Transporte();
         trasn.setIdTranspor(listaTransporte.size() + 1);
         trasn.setNombreTransport(jTextFielNom.getText());
-        
+
         trasn.setNumAsiento(Integer.parseInt(jTextFielAcien.getText()));
         jTextFielNom.setText("");
         jTextFielAcien.setText("");
@@ -301,7 +300,7 @@ public class TransporteView extends javax.swing.JFrame {
         jTextFielNom.setText("");
         jTextFielAcien.setText("");
         String nombre = jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString();
-      //  TrasnporteC.eliminarTransorte(listaTransporte, model);
+        //  TrasnporteC.eliminarTransorte(listaTransporte, model);
         TrasnporteC.mostrarTransporte(listaTransporte, model);
 
     }//GEN-LAST:event_jButton2ElimActionPerformed
@@ -311,7 +310,7 @@ public class TransporteView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ElimMouseClicked
 
     private void jButton3ActuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActuActionPerformed
-      
+
     }//GEN-LAST:event_jButton3ActuActionPerformed
 
     public static void main(String args[]) {
