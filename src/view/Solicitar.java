@@ -6,7 +6,6 @@ Descripción: en esta parte presentoré los datos que el usuario seleccionó
  */
 package view;
 
-import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import pojo.Destino;
 import pojo.Transporte;
@@ -16,6 +15,7 @@ import pojo.Transporte;
  * @author gonzalo
  */
 public class Solicitar extends javax.swing.JFrame {
+
     /**
      * Creates new form Solicitar
      */
@@ -35,13 +35,12 @@ public class Solicitar extends javax.swing.JFrame {
         mostrarSolicitudDestino(destino);
     }
 
-    
     /**
      * metodo de solicitar transporte
      */
-    public  Solicitar(Transporte transporte) {
+    public Solicitar(Transporte transporte) {
         initComponents();
-        
+
         modeloTransporte = (DefaultTableModel) jTableTransport.getModel();
         mostrarSoliciudTransporte(transporte);
     }
@@ -75,7 +74,6 @@ public class Solicitar extends javax.swing.JFrame {
 
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -217,7 +215,7 @@ public class Solicitar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
-     
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Solicitar().setVisible(true);

@@ -9,6 +9,7 @@ Descripción: en está parte creo el jFrame de transporte en la cual desarrille
 package view;
 
 import controller.TransporteContoller;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -95,7 +96,7 @@ public class TransporteView extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jButtonSalir = new javax.swing.JButton();
         jButtonAgregar = new javax.swing.JButton();
         jButton3Actu = new javax.swing.JButton();
         jButton2Elim = new javax.swing.JButton();
@@ -126,14 +127,22 @@ public class TransporteView extends javax.swing.JFrame {
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
+        jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonSalirMouseExited(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 480, 80, 40));
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 450, 80, 40));
 
         jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/agre.png"))); // NOI18N
         jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -170,7 +179,7 @@ public class TransporteView extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 190, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 190, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Monospaced", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
@@ -218,11 +227,11 @@ public class TransporteView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 760, 130));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 890, 130));
         jPanel1.add(jTextFielAcien, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 190, 30));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descarga.jpg"))); // NOI18N
-        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fon.jpg"))); // NOI18N
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-790, 10, 1740, 500));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/transporte.png"))); // NOI18N
         jMenu1.setText("Transporte");
@@ -282,10 +291,10 @@ public class TransporteView extends javax.swing.JFrame {
         this.hide();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
 
         System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
         //agregar Transporte
@@ -319,7 +328,6 @@ public class TransporteView extends javax.swing.JFrame {
         jTextFielAcien.setText("");
         jTextFielPrecio.setText("");
         String nombre = jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString();
-        //  TrasnporteC.eliminarTransorte(listaTransporte, model);
         TrasnporteC.mostrarTransporte(listaTransporte, model);
 
     }//GEN-LAST:event_jButton2ElimActionPerformed
@@ -343,6 +351,16 @@ public class TransporteView extends javax.swing.JFrame {
         new Solicitar(solicitarTransporte).setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButtonSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseEntered
+        // TODO add your handling code here:
+        jButtonSalir.setBackground(Color.black);
+    }//GEN-LAST:event_jButtonSalirMouseEntered
+
+    private void jButtonSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseExited
+        // TODO add your handling code here:
+        jButtonSalir.setBackground(Color.white);
+    }//GEN-LAST:event_jButtonSalirMouseExited
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -355,11 +373,11 @@ public class TransporteView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fondo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton2Elim;
     private javax.swing.JButton jButton3Actu;
     private javax.swing.JButton jButtonAgregar;
+    private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

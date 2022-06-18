@@ -6,6 +6,7 @@ descripción: creo la ventana login
  */
 package view;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -71,27 +72,40 @@ public class Login extends javax.swing.JFrame implements ActionListener {
         });
         jPanelLogin.add(pasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 170, -1));
 
-        jButtonIngresar.setBackground(new java.awt.Color(255, 255, 0));
         jButtonIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/ingresar.png"))); // NOI18N
         jButtonIngresar.setToolTipText("Ingresar");
         jButtonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonIngresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonIngresarMouseExited(evt);
+            }
+        });
         jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIngresarActionPerformed(evt);
             }
         });
-        jPanelLogin.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, 40));
+        jPanelLogin.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, -1, 40));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user.png"))); // NOI18N
         jPanelLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
-        jButtonSalir.setBackground(new java.awt.Color(255, 255, 0));
         jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
+        jButtonSalir.setToolTipText("Salir");
         jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonSalirMouseExited(evt);
             }
         });
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +113,7 @@ public class Login extends javax.swing.JFrame implements ActionListener {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        jPanelLogin.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, -1, 40));
+        jPanelLogin.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, -1, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -165,6 +179,23 @@ public class Login extends javax.swing.JFrame implements ActionListener {
         // TODO add your handling code here:
           // JOptionPane.showMessageDialog(null, "Deseas cancelar"); 
     }//GEN-LAST:event_jButtonSalirMouseClicked
+
+    private void jButtonSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseEntered
+        jButtonSalir.setBackground(Color.red);
+        
+    }//GEN-LAST:event_jButtonSalirMouseEntered
+
+    private void jButtonSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseExited
+        jButtonSalir.setBackground(Color.white);
+    }//GEN-LAST:event_jButtonSalirMouseExited
+
+    private void jButtonIngresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIngresarMouseEntered
+        jButtonIngresar.setBackground(Color.green);
+    }//GEN-LAST:event_jButtonIngresarMouseEntered
+
+    private void jButtonIngresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIngresarMouseExited
+       jButtonIngresar.setBackground(Color.white);
+    }//GEN-LAST:event_jButtonIngresarMouseExited
 
     /**
      * @param args the command line arguments

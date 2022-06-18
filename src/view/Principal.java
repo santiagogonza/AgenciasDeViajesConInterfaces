@@ -8,6 +8,7 @@ descripción: creo la ventana principal donde presento la lista de los
 package view;
 
 import controller.DestinoController;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         initComponents();
         // this.setSize(975, 580);
         setLocationRelativeTo(null);
-        setResizable(false);
+        //setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         modelo = (DefaultTableModel) jTable1.getModel();
@@ -115,7 +116,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jPanelPrincipal = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jButtonSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextFielNom = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -147,7 +148,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jPanelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setBackground(new java.awt.Color(201, 234, 240));
-        jTable1.setBorder(new javax.swing.border.MatteBorder(null));
+        jTable1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -164,9 +165,16 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -175,47 +183,66 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
+            jTable1.getColumnModel().getColumn(4).setResizable(false);
+        }
 
-        jPanelPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 930, 140));
+        jPanelPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 930, 140));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
+        jButtonSalir.setToolTipText("Salir");
+        jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonSalirMouseExited(evt);
             }
         });
-        jPanelPrincipal.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 540, 70, 40));
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalirActionPerformed(evt);
+            }
+        });
+        jPanelPrincipal.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 450, 70, 40));
 
-        jLabel1.setFont(new java.awt.Font("Lato Black", 3, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lato Black", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Agencias de viajes Miahuatlán");
-        jPanelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 500, -1));
+        jPanelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 500, -1));
 
+        jTextFielNom.setBackground(new java.awt.Color(255, 255, 204));
         jTextFielNom.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextFielNom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFielNomActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jTextFielNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 170, -1));
+        jPanelPrincipal.add(jTextFielNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 170, -1));
 
-        jLabel2.setFont(new java.awt.Font("DejaVu Sans", 3, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         jLabel2.setText("Destino: ");
-        jPanelPrincipal.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
+        jPanelPrincipal.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("DejaVu Sans", 3, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         jLabel3.setText("Código Postal:");
-        jPanelPrincipal.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+        jPanelPrincipal.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("DejaVu Sans", 3, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         jLabel4.setText("Dirección:");
-        jPanelPrincipal.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, -1, -1));
+        jPanelPrincipal.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("DejaVu Sans", 3, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         jLabel5.setText("Télefono:");
-        jPanelPrincipal.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, -1, -1));
+        jPanelPrincipal.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, -1, -1));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/agre.png"))); // NOI18N
+        jButton3.setToolTipText("Agregar");
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,6 +252,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jPanelPrincipal.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 70, 40));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/actualizar.png"))); // NOI18N
+        jButton4.setToolTipText("Actualizar");
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,15 +261,19 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         });
         jPanelPrincipal.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 70, 70, 40));
 
+        jTextFielDir.setBackground(new java.awt.Color(255, 255, 204));
         jTextFielDir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFielDirActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jTextFielDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 180, -1));
-        jPanelPrincipal.add(jTextFielCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 170, -1));
+        jPanelPrincipal.add(jTextFielDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 180, -1));
+
+        jTextFielCp.setBackground(new java.awt.Color(255, 255, 204));
+        jPanelPrincipal.add(jTextFielCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 170, -1));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/basura.png"))); // NOI18N
+        jButton5.setToolTipText("Eliminar");
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -254,9 +286,12 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             }
         });
         jPanelPrincipal.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 70, 40));
-        jPanelPrincipal.add(jTextFielTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 180, -1));
+
+        jTextFielTel.setBackground(new java.awt.Color(255, 255, 204));
+        jPanelPrincipal.add(jTextFielTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 180, -1));
 
         jButton2.setText("Solicitar");
+        jButton2.setToolTipText("Solicitar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -264,14 +299,20 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         });
         jPanelPrincipal.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 180, 70, 30));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descarga.jpg"))); // NOI18N
-        jPanelPrincipal.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 960, 610));
+        fondo.setForeground(new java.awt.Color(51, 51, 51));
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo.jpg"))); // NOI18N
+        jPanelPrincipal.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 970, 570));
 
         fileMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         fileMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/menu1.png"))); // NOI18N
         fileMenu.setMnemonic('f');
         fileMenu.setText("Ménu");
         fileMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        fileMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                fileMenuMouseEntered(evt);
+            }
+        });
         fileMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fileMenuActionPerformed(evt);
@@ -346,11 +387,11 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
     }//GEN-LAST:event_openMenuItemActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
 
         System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void saveMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMenuItemMouseClicked
         // TODO add your handling code here:
@@ -471,6 +512,19 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         new Solicitar(solic).setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButtonSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseEntered
+        // TODO add your handling code here:
+        jButtonSalir.setBackground(Color.red);
+    }//GEN-LAST:event_jButtonSalirMouseEntered
+
+    private void jButtonSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseExited
+       jButtonSalir.setBackground(Color.white);
+    }//GEN-LAST:event_jButtonSalirMouseExited
+
+    private void fileMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fileMenuMouseEntered
+        openMenuItem.setBackground(Color.green);
+    }//GEN-LAST:event_fileMenuMouseEntered
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -483,11 +537,11 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu fileMenu;
     private javax.swing.JLabel fondo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButtonSalir;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
