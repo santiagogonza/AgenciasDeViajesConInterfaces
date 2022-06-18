@@ -32,6 +32,9 @@ public class TransporteView extends javax.swing.JFrame {
         mostrarTransporte();
 
     }
+    public void Transporte(){
+        
+    }
 
     // funcion de mostrarTransporte
     public void mostrarTransporte() {
@@ -96,13 +99,16 @@ public class TransporteView extends javax.swing.JFrame {
         jButtonAgregar = new javax.swing.JButton();
         jButton3Actu = new javax.swing.JButton();
         jButton2Elim = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jTextFielNom = new javax.swing.JTextField();
+        jTextFielPrecio = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jTextFielAcien = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -115,7 +121,7 @@ public class TransporteView extends javax.swing.JFrame {
         jMenuBar2.add(jMenu3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setResizable(false);
 
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -158,14 +164,30 @@ public class TransporteView extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2Elim, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 130, 80, 40));
 
+        jButton2.setText("solicitar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 190, -1, -1));
+
         jLabel1.setFont(new java.awt.Font("Monospaced", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Numero de Acientos:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Monospaced", 3, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 255, 0));
         jLabel3.setText("Nombre del Transporte:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
-        jPanel1.add(jTextFielNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 170, -1));
+
+        jLabel2.setFont(new java.awt.Font("DejaVu Sans", 3, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 255, 0));
+        jLabel2.setText("precio:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
+        jPanel1.add(jTextFielNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 190, 30));
+        jPanel1.add(jTextFielPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 190, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -196,11 +218,11 @@ public class TransporteView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 520, 190));
-        jPanel1.add(jTextFielAcien, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 170, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 760, 130));
+        jPanel1.add(jTextFielAcien, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 190, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descarga.jpg"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descarga.jpg"))); // NOI18N
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/transporte.png"))); // NOI18N
         jMenu1.setText("Transporte");
@@ -252,19 +274,16 @@ public class TransporteView extends javax.swing.JFrame {
         new Principal().setVisible(true);
         // método que oculta la venta  principal
         this.hide();
-
-
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         new Reservacion().setVisible(true);
         this.hide();
-
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -277,28 +296,28 @@ public class TransporteView extends javax.swing.JFrame {
         trasn.setNumAsiento(Integer.parseInt(jTextFielAcien.getText()));
         jTextFielNom.setText("");
         jTextFielAcien.setText("");
-
+        jTextFielPrecio.setText("");
         TrasnporteC.crearTransporte(listaTransporte, trasn);
         TrasnporteC.mostrarTransporte(listaTransporte, model);
-
-        //mostrarTransporte();
 
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
+
         //editar
         jTextFielAcien.setEditable(true);
 
         jTextFielNom.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
         jTextFielAcien.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
+        jTextFielPrecio.setText(jTable1.getValueAt(jTable1.getSelectedRow(),3).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton2ElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ElimActionPerformed
-        // TODO add your handling code here:
+
         // botton eliminar
         jTextFielNom.setText("");
         jTextFielAcien.setText("");
+        jTextFielPrecio.setText("");
         String nombre = jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString();
         //  TrasnporteC.eliminarTransorte(listaTransporte, model);
         TrasnporteC.mostrarTransporte(listaTransporte, model);
@@ -313,6 +332,17 @@ public class TransporteView extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3ActuActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //botton solicitar
+        
+        Transporte solicitarTransporte = new Transporte();
+        solicitarTransporte.setNombreTransport(jTextFielNom.getText());
+        solicitarTransporte.setNumAsiento(Integer.parseInt(jTextFielAcien.getText()));
+        solicitarTransporte.setPrecio(Integer.parseInt(jTextFielPrecio.getText()));
+        
+        new Solicitar(solicitarTransporte).setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -324,7 +354,9 @@ public class TransporteView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton2Elim;
     private javax.swing.JButton jButton3Actu;
     private javax.swing.JButton jButtonAgregar;
@@ -343,5 +375,6 @@ public class TransporteView extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFielAcien;
     private javax.swing.JTextField jTextFielNom;
+    private javax.swing.JTextField jTextFielPrecio;
     // End of variables declaration//GEN-END:variables
 }

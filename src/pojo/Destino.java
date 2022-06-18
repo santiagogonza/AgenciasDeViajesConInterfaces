@@ -9,7 +9,9 @@ todos los atributos de la clase Destino.
 package pojo;
 
 public class Destino {
-
+/**
+ * Declaración de los atributos de la clase Destino
+ */
     private long idlugar;
     private String nombre;
     private String direccion;
@@ -20,6 +22,16 @@ public class Destino {
 
     }
 
+    /**
+     * 
+     * @param idlugar el atributo idlugar de tipo long 
+     * @param nombre  el atributo nombre de tipo String
+     * @param direccion el atributo dirección de tipo String 
+     * @param telefono  el atributo telefono de tipo String
+     * @param codigoPost el atributo codigoPost de tipo int
+     * 
+     * constructor con los parámetros correspondientes de cada atributo
+     */
     public Destino(long idlugar, String nombre, String direccion,
             String telefono, int codigoPost) {
         this.idlugar = idlugar;
@@ -28,6 +40,10 @@ public class Destino {
         this.telefono = telefono;
         this.codigoPost = codigoPost;
     }
+    /**
+     * se encuentra los métodos set y get de cada atributo
+     * @return 
+     */
 
     public long getIdlugar() {
         return idlugar;

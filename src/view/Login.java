@@ -52,13 +52,13 @@ public class Login extends javax.swing.JFrame implements ActionListener {
         jLabel1Usuario.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1Usuario.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel1Usuario.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1Usuario.setText("Usuario");
-        jPanelLogin.add(jLabel1Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+        jLabel1Usuario.setText("Usuario:");
+        jPanelLogin.add(jLabel1Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
         jLabel2Paword.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel2Paword.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2Paword.setText("Password");
-        jPanelLogin.add(jLabel2Paword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
+        jLabel2Paword.setText("Contraseña:");
+        jPanelLogin.add(jLabel2Paword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
         usuario.setText("gonzalo");
         jPanelLogin.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 170, -1));
@@ -73,6 +73,7 @@ public class Login extends javax.swing.JFrame implements ActionListener {
 
         jButtonIngresar.setBackground(new java.awt.Color(255, 255, 0));
         jButtonIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/ingresar.png"))); // NOI18N
+        jButtonIngresar.setToolTipText("Ingresar");
         jButtonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +89,11 @@ public class Login extends javax.swing.JFrame implements ActionListener {
         jButtonSalir.setBackground(new java.awt.Color(255, 255, 0));
         jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
         jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonSalirMouseClicked(evt);
+            }
+        });
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSalirActionPerformed(evt);
@@ -95,7 +101,7 @@ public class Login extends javax.swing.JFrame implements ActionListener {
         });
         jPanelLogin.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, -1, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descarga.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
         jLabel2.setRequestFocusEnabled(false);
         jPanelLogin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 470));
@@ -125,6 +131,7 @@ public class Login extends javax.swing.JFrame implements ActionListener {
         en esta parte declaramos un usuario y una contraseña, ya que através de
          podemos acceder al programa
          */
+       
         String usuario = "gonzalo";
         String password = "123";
         Principal prin = new Principal();
@@ -148,9 +155,16 @@ public class Login extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-
+    JOptionPane.showMessageDialog(null, "Deseas salir");
+   // JOptionPane.show
         System.exit(0);
+     
     }//GEN-LAST:event_jButtonSalirActionPerformed
+
+    private void jButtonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseClicked
+        // TODO add your handling code here:
+          // JOptionPane.showMessageDialog(null, "Deseas cancelar"); 
+    }//GEN-LAST:event_jButtonSalirMouseClicked
 
     /**
      * @param args the command line arguments

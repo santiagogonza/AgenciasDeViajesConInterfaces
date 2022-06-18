@@ -8,16 +8,22 @@
 package pojo;
 
 public class Transporte {
-
+/**
+ * declaración de los atributos con sus tipos de datos corresporndientes
+ */
     private long idTranspor;
     private int numAsiento;
     private String nombreTransport;
     private int precio;
-
+/**
+ * Constructor vacio Transporte
+ */
     public Transporte() {
 
     }
-
+/**
+ * Constructor con los parámetros de cada atributo
+ */
     public Transporte(long idTranspor, int numAsiento, String nombreTransport, int precio) {
         this.idTranspor = idTranspor;
         this.numAsiento = numAsiento;

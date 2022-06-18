@@ -25,9 +25,10 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     private List<Destino> listaDestino;
     private DestinoController DestinoC;
 
+    // private DefaultTableModel mo;
     public Principal() {
         initComponents();
-        this.setSize(975, 580);
+        // this.setSize(975, 580);
         setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -109,6 +110,8 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jPanelPrincipal = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -125,6 +128,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jTextFielCp = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jTextFielTel = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -132,8 +136,12 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         saveMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
 
+        jPasswordField1.setText("jPasswordField1");
+
+        jCheckBox1.setText("jCheckBox1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setResizable(false);
 
         jPanelPrincipal.setEnabled(false);
         jPanelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -168,7 +176,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanelPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 930, 170));
+        jPanelPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 930, 140));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -177,12 +185,11 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 450, 70, 40));
+        jPanelPrincipal.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 540, 70, 40));
 
         jLabel1.setFont(new java.awt.Font("Lato Black", 3, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Agencias de viajes Miahuatlán");
-        jPanelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 500, -1));
+        jPanelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 500, -1));
 
         jTextFielNom.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextFielNom.addActionListener(new java.awt.event.ActionListener() {
@@ -190,7 +197,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                 jTextFielNomActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jTextFielNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 240, -1));
+        jPanelPrincipal.add(jTextFielNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 3, 18)); // NOI18N
         jLabel2.setText("Destino: ");
@@ -232,7 +239,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             }
         });
         jPanelPrincipal.add(jTextFielDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 180, -1));
-        jPanelPrincipal.add(jTextFielCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 170, -1));
+        jPanelPrincipal.add(jTextFielCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 170, -1));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/basura.png"))); // NOI18N
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -249,8 +256,16 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jPanelPrincipal.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 70, 40));
         jPanelPrincipal.add(jTextFielTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 180, -1));
 
+        jButton2.setText("Solicitar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanelPrincipal.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 180, 70, 30));
+
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descarga.jpg"))); // NOI18N
-        jPanelPrincipal.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 500));
+        jPanelPrincipal.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 960, 610));
 
         fileMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         fileMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/menu1.png"))); // NOI18N
@@ -314,8 +329,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,6 +348,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -391,7 +406,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_jTextFielDirActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+
         //actualizar
         Destino des3 = DestinoC.obtenerUnDestino(listaDestino, Integer.parseInt(jTextFielCp.getText()));
         Destino des = new Destino();
@@ -429,23 +444,33 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        // editar
-        // jTextFielNom.setEditable(false);
+        // editarTable;
         jTextFielCp.setEditable(false);
 
         jTextFielNom.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
         jTextFielCp.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
         jTextFielDir.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
         jTextFielTel.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
+
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        // solicitar
+        Destino solic = new Destino();
+        solic.setNombre(jTextFielNom.getText());
+        solic.setDireccion(jTextFielDir.getText());
+        solic.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
+        solic.setTelefono(jTextFielTel.getText());
+       
+       
+        new Solicitar(solic).setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -459,15 +484,18 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JMenu fileMenu;
     private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanelPrincipal;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFielCp;

@@ -28,7 +28,7 @@ public class Reservacion extends javax.swing.JFrame {
         saveMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setResizable(false);
 
         jPanelReservacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
