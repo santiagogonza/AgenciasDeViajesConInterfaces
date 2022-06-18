@@ -27,7 +27,7 @@ public class TransporteView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 
         listaTransporte = new ArrayList<>();
-        model = (DefaultTableModel) jTable1.getModel();
+        model = (DefaultTableModel) jTableTransporte.getModel();
         TrasnporteC = new TransporteContoller();
         agregarTransportes();
         mostrarTransporte();
@@ -98,16 +98,16 @@ public class TransporteView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButtonSalir = new javax.swing.JButton();
         jButtonAgregar = new javax.swing.JButton();
-        jButton3Actu = new javax.swing.JButton();
-        jButton2Elim = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonActualizar = new javax.swing.JButton();
+        jButtonElimiminar = new javax.swing.JButton();
+        jButtonSolicitar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextFielNom = new javax.swing.JTextField();
         jTextFielPrecio = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableTransporte = new javax.swing.JTable();
         jTextFielAcien = new javax.swing.JTextField();
         fondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -128,6 +128,7 @@ public class TransporteView extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
+        jButtonSalir.setToolTipText("Salir");
         jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -142,9 +143,17 @@ public class TransporteView extends javax.swing.JFrame {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 450, 80, 40));
+        jPanel1.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 450, 80, 40));
 
         jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/agre.png"))); // NOI18N
+        jButtonAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonAgregarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonAgregarMouseExited(evt);
+            }
+        });
         jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAgregarActionPerformed(evt);
@@ -152,53 +161,73 @@ public class TransporteView extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 30, 80, -1));
 
-        jButton3Actu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/actualizar.png"))); // NOI18N
-        jButton3Actu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActuActionPerformed(evt);
+        jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/actualizar.png"))); // NOI18N
+        jButtonActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonActualizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonActualizarMouseExited(evt);
             }
         });
-        jPanel1.add(jButton3Actu, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 80, 80, -1));
+        jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 80, 80, -1));
 
-        jButton2Elim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/basura.png"))); // NOI18N
-        jButton2Elim.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonElimiminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/basura.png"))); // NOI18N
+        jButtonElimiminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2ElimMouseClicked(evt);
+                jButtonElimiminarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonElimiminarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonElimiminarMouseExited(evt);
             }
         });
-        jButton2Elim.addActionListener(new java.awt.event.ActionListener() {
+        jButtonElimiminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ElimActionPerformed(evt);
+                jButtonElimiminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2Elim, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 130, 80, 40));
+        jPanel1.add(jButtonElimiminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 130, 80, 40));
 
-        jButton2.setText("solicitar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        jButtonSolicitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/solicitar.png"))); // NOI18N
+        jButtonSolicitar.setToolTipText("Solicitar");
+        jButtonSolicitar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonSolicitarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonSolicitarMouseExited(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 190, -1, -1));
+        jButtonSolicitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSolicitarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonSolicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 180, 80, -1));
 
         jLabel1.setFont(new java.awt.Font("Monospaced", 3, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Numero de Acientos:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Monospaced", 3, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 255, 0));
         jLabel3.setText("Nombre del Transporte:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 3, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 255, 0));
         jLabel2.setText("precio:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
         jPanel1.add(jTextFielNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 190, 30));
         jPanel1.add(jTextFielPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 190, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableTransporte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -219,13 +248,13 @@ public class TransporteView extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTable1.setOpaque(false);
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableTransporte.setOpaque(false);
+        jTableTransporte.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                jTableTransporteMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableTransporte);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 890, 130));
         jPanel1.add(jTextFielAcien, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 190, 30));
@@ -311,55 +340,107 @@ public class TransporteView extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void jTableTransporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableTransporteMouseClicked
 
         //editar
         jTextFielAcien.setEditable(true);
 
-        jTextFielNom.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
-        jTextFielAcien.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
-        jTextFielPrecio.setText(jTable1.getValueAt(jTable1.getSelectedRow(),3).toString());
-    }//GEN-LAST:event_jTable1MouseClicked
+        jTextFielNom.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 1).toString());
+        jTextFielAcien.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 2).toString());
+        jTextFielPrecio.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(),3).toString());
+    }//GEN-LAST:event_jTableTransporteMouseClicked
 
-    private void jButton2ElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ElimActionPerformed
-
+    private void jButtonElimiminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonElimiminarActionPerformed
         // botton eliminar
         jTextFielNom.setText("");
         jTextFielAcien.setText("");
         jTextFielPrecio.setText("");
-        String nombre = jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString();
+        String nombre = jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 1).toString();
+        TrasnporteC.eliminarTransorte(listaTransporte, nombre);
         TrasnporteC.mostrarTransporte(listaTransporte, model);
 
-    }//GEN-LAST:event_jButton2ElimActionPerformed
+    }//GEN-LAST:event_jButtonElimiminarActionPerformed
 
-    private void jButton2ElimMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2ElimMouseClicked
+    private void jButtonElimiminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonElimiminarMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ElimMouseClicked
+    }//GEN-LAST:event_jButtonElimiminarMouseClicked
 
-    private void jButton3ActuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActuActionPerformed
+    private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
+        //boton actualizar
+        Transporte trasporteActulizado = TrasnporteC.obtenerTransporte(listaTransporte,Integer.parseInt(jTextFielPrecio.getText()));
+        Transporte transporteActualizar= new Transporte();
+        transporteActualizar.setNombreTransport(jTextFielNom.getText());
+        transporteActualizar.setNumAsiento(Integer.parseInt(jTextFielAcien.getText()));
+        transporteActualizar.setPrecio(Integer.parseInt(jTextFielPrecio.getText()));
+        TrasnporteC.actualizarTransporte(listaTransporte, trans);
+        TrasnporteC.mostrarTransporte(listaTransporte, model);
+        
+        jTextFielNom.setText("");
+        jTextFielAcien.setText("");
+        jTextFielPrecio.setText("");
+        
+        jTextFielNom.setEditable(true);
+        jTextFielAcien.setEditable(true);
+        jTextFielPrecio.setEditable(true);
+        mostrarTransporte();
+        
+        
+    }//GEN-LAST:event_jButtonActualizarActionPerformed
 
-    }//GEN-LAST:event_jButton3ActuActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSolicitarActionPerformed
         //botton solicitar
         
         Transporte solicitarTransporte = new Transporte();
         solicitarTransporte.setNombreTransport(jTextFielNom.getText());
-        solicitarTransporte.setNumAsiento(Integer.parseInt(jTextFielAcien.getText()));
-        solicitarTransporte.setPrecio(Integer.parseInt(jTextFielPrecio.getText()));
+        solicitarTransporte.setNumAsiento(Integer.parseInt(
+                jTextFielAcien.getText()));
+                solicitarTransporte.setPrecio(Integer.parseInt(
+                jTextFielPrecio.getText()));
         
         new Solicitar(solicitarTransporte).setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonSolicitarActionPerformed
 
     private void jButtonSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseEntered
         // TODO add your handling code here:
-        jButtonSalir.setBackground(Color.black);
+        jButtonSalir.setBackground(Color.red);
     }//GEN-LAST:event_jButtonSalirMouseEntered
 
     private void jButtonSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseExited
         // TODO add your handling code here:
         jButtonSalir.setBackground(Color.white);
     }//GEN-LAST:event_jButtonSalirMouseExited
+
+    private void jButtonAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAgregarMouseEntered
+        jButtonAgregar.setBackground(Color.green);
+    }//GEN-LAST:event_jButtonAgregarMouseEntered
+
+    private void jButtonAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAgregarMouseExited
+       jButtonAgregar.setBackground(Color.white);
+    }//GEN-LAST:event_jButtonAgregarMouseExited
+
+    private void jButtonActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonActualizarMouseEntered
+       jButtonActualizar.setBackground(Color.green);
+    }//GEN-LAST:event_jButtonActualizarMouseEntered
+
+    private void jButtonActualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonActualizarMouseExited
+        jButtonActualizar.setBackground(Color.white);
+    }//GEN-LAST:event_jButtonActualizarMouseExited
+
+    private void jButtonElimiminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonElimiminarMouseEntered
+       jButtonElimiminar.setBackground(Color.green);
+    }//GEN-LAST:event_jButtonElimiminarMouseEntered
+
+    private void jButtonElimiminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonElimiminarMouseExited
+       jButtonElimiminar.setBackground(Color.white);
+    }//GEN-LAST:event_jButtonElimiminarMouseExited
+
+    private void jButtonSolicitarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSolicitarMouseEntered
+        jButtonSolicitar.setBackground(Color.green);
+    }//GEN-LAST:event_jButtonSolicitarMouseEntered
+
+    private void jButtonSolicitarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSolicitarMouseExited
+        jButtonSolicitar.setBackground(Color.white);
+    }//GEN-LAST:event_jButtonSolicitarMouseExited
 
     public static void main(String args[]) {
 
@@ -373,11 +454,11 @@ public class TransporteView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fondo;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton2Elim;
-    private javax.swing.JButton jButton3Actu;
+    private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonAgregar;
+    private javax.swing.JButton jButtonElimiminar;
     private javax.swing.JButton jButtonSalir;
+    private javax.swing.JButton jButtonSolicitar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -390,7 +471,7 @@ public class TransporteView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableTransporte;
     private javax.swing.JTextField jTextFielAcien;
     private javax.swing.JTextField jTextFielNom;
     private javax.swing.JTextField jTextFielPrecio;

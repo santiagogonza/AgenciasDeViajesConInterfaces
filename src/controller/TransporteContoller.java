@@ -21,9 +21,9 @@ public class TransporteContoller {
         trasM.crearTransporte(lista, transporte);
     }
 
-    //public void eliminarTransorte(List<Transporte> lista, String nombre{
-    //  trasM.mostrarTransporte(lista, nombre);
-    //}
+    public void eliminarTransorte(List<Transporte> lista, String nombre){
+      trasM.eliminarTransporte(lista, nombre);
+    }
     public void mostrarTransporte(List<Transporte> lista, DefaultTableModel modelo) {
         trasM.mostrarTransporte(lista, modelo);
     }

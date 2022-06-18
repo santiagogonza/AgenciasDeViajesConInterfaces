@@ -123,13 +123,13 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonAgregar = new javax.swing.JButton();
+        jButtonActualizar = new javax.swing.JButton();
         jTextFielDir = new javax.swing.JTextField();
         jTextFielCp = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
+        jButtonEliminar = new javax.swing.JButton();
         jTextFielTel = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        jButtonSolicitar = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -209,7 +209,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 450, 70, 40));
+        jPanelPrincipal.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 450, 70, 40));
 
         jLabel1.setFont(new java.awt.Font("Lato Black", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -241,25 +241,41 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jLabel5.setText("Télefono:");
         jPanelPrincipal.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, -1, -1));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/agre.png"))); // NOI18N
-        jButton3.setToolTipText("Agregar");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+        jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/agre.png"))); // NOI18N
+        jButtonAgregar.setToolTipText("Agregar");
+        jButtonAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonAgregarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonAgregarMouseExited(evt);
             }
         });
-        jPanelPrincipal.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 70, 40));
+        jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgregarActionPerformed(evt);
+            }
+        });
+        jPanelPrincipal.add(jButtonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 70, 40));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/actualizar.png"))); // NOI18N
-        jButton4.setToolTipText("Actualizar");
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+        jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/actualizar.png"))); // NOI18N
+        jButtonActualizar.setToolTipText("Actualizar");
+        jButtonActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonActualizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonActualizarMouseExited(evt);
             }
         });
-        jPanelPrincipal.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 70, 70, 40));
+        jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActualizarActionPerformed(evt);
+            }
+        });
+        jPanelPrincipal.add(jButtonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 70, 70, 40));
 
         jTextFielDir.setBackground(new java.awt.Color(255, 255, 204));
         jTextFielDir.addActionListener(new java.awt.event.ActionListener() {
@@ -272,32 +288,46 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jTextFielCp.setBackground(new java.awt.Color(255, 255, 204));
         jPanelPrincipal.add(jTextFielCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 170, -1));
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/basura.png"))); // NOI18N
-        jButton5.setToolTipText("Eliminar");
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/basura.png"))); // NOI18N
+        jButtonEliminar.setToolTipText("Eliminar");
+        jButtonEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
+                jButtonEliminarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonEliminarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonEliminarMouseExited(evt);
             }
         });
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButtonEliminarActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 70, 40));
+        jPanelPrincipal.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 70, 40));
 
         jTextFielTel.setBackground(new java.awt.Color(255, 255, 204));
         jPanelPrincipal.add(jTextFielTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 180, -1));
 
-        jButton2.setText("Solicitar");
-        jButton2.setToolTipText("Solicitar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        jButtonSolicitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/solicitar.png"))); // NOI18N
+        jButtonSolicitar.setToolTipText("Solicitar");
+        jButtonSolicitar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonSolicitarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonSolicitarMouseExited(evt);
             }
         });
-        jPanelPrincipal.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 180, 70, 30));
+        jButtonSolicitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSolicitarActionPerformed(evt);
+            }
+        });
+        jPanelPrincipal.add(jButtonSolicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 170, 70, 40));
 
         fondo.setForeground(new java.awt.Color(51, 51, 51));
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo.jpg"))); // NOI18N
@@ -417,7 +447,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         this.hide();
     }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
         //agregar
 
         Destino dest = new Destino();
@@ -436,7 +466,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         DestinoC.mostrarDestino(listaDestino, modelo);
 
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButtonAgregarActionPerformed
 
     private void jTextFielNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielNomActionPerformed
         // TODO add your handling code here:
@@ -446,7 +476,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFielDirActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
 
         //actualizar
         Destino des3 = DestinoC.obtenerUnDestino(listaDestino, Integer.parseInt(jTextFielCp.getText()));
@@ -470,9 +500,9 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jTextFielDir.setEditable(true);
         jTextFielTel.setEditable(true);
         mostrarDestino();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButtonActualizarActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         //botton eliminar
         jTextFielNom.setText("");
         jTextFielCp.setText("");
@@ -481,7 +511,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         String nombre = jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString();
         DestinoC.eliminarDestino(listaDestino, nombre);
         DestinoC.mostrarDestino(listaDestino, modelo);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
@@ -495,11 +525,11 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+    private void jButtonEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5MouseClicked
+    }//GEN-LAST:event_jButtonEliminarMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSolicitarActionPerformed
 
         // solicitar
         Destino solic = new Destino();
@@ -510,7 +540,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
        
        
         new Solicitar(solic).setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonSolicitarActionPerformed
 
     private void jButtonSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseEntered
         // TODO add your handling code here:
@@ -525,6 +555,38 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         openMenuItem.setBackground(Color.green);
     }//GEN-LAST:event_fileMenuMouseEntered
 
+    private void jButtonAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAgregarMouseEntered
+      jButtonAgregar.setBackground(Color.green);
+    }//GEN-LAST:event_jButtonAgregarMouseEntered
+
+    private void jButtonAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAgregarMouseExited
+       jButtonAgregar.setBackground(Color.white);
+    }//GEN-LAST:event_jButtonAgregarMouseExited
+
+    private void jButtonActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonActualizarMouseEntered
+      jButtonActualizar.setBackground(Color.green);
+    }//GEN-LAST:event_jButtonActualizarMouseEntered
+
+    private void jButtonActualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonActualizarMouseExited
+        jButtonActualizar.setBackground(Color.white);
+    }//GEN-LAST:event_jButtonActualizarMouseExited
+
+    private void jButtonEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseEntered
+       jButtonEliminar.setBackground(Color.green);
+    }//GEN-LAST:event_jButtonEliminarMouseEntered
+
+    private void jButtonEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseExited
+       jButtonEliminar.setBackground(Color.white);
+    }//GEN-LAST:event_jButtonEliminarMouseExited
+
+    private void jButtonSolicitarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSolicitarMouseEntered
+        jButtonSolicitar.setBackground(Color.green);
+    }//GEN-LAST:event_jButtonSolicitarMouseEntered
+
+    private void jButtonSolicitarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSolicitarMouseExited
+       jButtonSolicitar.setBackground(Color.white);
+    }//GEN-LAST:event_jButtonSolicitarMouseExited
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -537,11 +599,11 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu fileMenu;
     private javax.swing.JLabel fondo;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButtonActualizar;
+    private javax.swing.JButton jButtonAgregar;
+    private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonSalir;
+    private javax.swing.JButton jButtonSolicitar;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
