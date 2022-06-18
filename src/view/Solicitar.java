@@ -6,6 +6,7 @@ Descripción: en esta parte presentoré los datos que el usuario seleccionó
  */
 package view;
 
+import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 import pojo.Destino;
 import pojo.Transporte;
@@ -87,7 +88,7 @@ public class Solicitar extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableTransport = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonGuargar = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -156,13 +157,22 @@ public class Solicitar extends javax.swing.JFrame {
         jLabel3.setText("TRANSPORTE");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
 
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jButtonGuargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png.png"))); // NOI18N
+        jButtonGuargar.setToolTipText("Guardar");
+        jButtonGuargar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonGuargarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonGuargarMouseExited(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, -1, -1));
+        jButtonGuargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuargarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonGuargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 70, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viaje.jpg"))); // NOI18N
         Fondo.setText("jLabel4");
@@ -182,11 +192,19 @@ public class Solicitar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonGuargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuargarActionPerformed
         // TODO add your handling code here:
         // guarda los datos
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonGuargarActionPerformed
+
+    private void jButtonGuargarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGuargarMouseEntered
+       jButtonGuargar.setBackground(Color.green);
+    }//GEN-LAST:event_jButtonGuargarMouseEntered
+
+    private void jButtonGuargarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGuargarMouseExited
+        jButtonGuargar.setBackground(Color.white);
+    }//GEN-LAST:event_jButtonGuargarMouseExited
 
     public static void main(String args[]) {
 
@@ -199,7 +217,7 @@ public class Solicitar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonGuargar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
