@@ -16,6 +16,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pojo.Destino;
+import pojo.Transporte;
 
 public class Principal extends javax.swing.JFrame implements ActionListener {
 
@@ -26,8 +27,10 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     Login log = new Login();
     private List<Destino> listaDestino;
     private DestinoController DestinoC;
+    private Transporte transporte;
     private int xMuase;
     private int yMouse;
+    private int caseVentana=1;
 
     // private DefaultTableModel mo;
     public Principal() {
@@ -45,6 +48,24 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         agregarDatos();
         mostrarDestino();
 
+    }
+
+    Principal(int caseVentana, Transporte transporte) {
+        this.caseVentana = caseVentana;
+        this.transporte = transporte;
+        initComponents();
+        // this.setSize(975, 580);
+        setLocationRelativeTo(null);
+        //setResizable(false);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        modelo = (DefaultTableModel) jTable1.getModel();
+
+        log.setVisible(false);
+        listaDestino = new ArrayList<>();
+        DestinoC = new DestinoController();
+        agregarDatos();
+        mostrarDestino();
     }
 
     public void mostrarDestino() {
@@ -489,7 +510,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
     private void saveMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMenuItemMouseClicked
         // TODO add your handling code here:
-        new TransporteView().setVisible(true);
+        new TransporteView(2).setVisible(true);
         this.hide();
     }//GEN-LAST:event_saveMenuItemMouseClicked
 
@@ -500,7 +521,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
 
-        new TransporteView().setVisible(true);
+        new TransporteView(2).setVisible(true);
         this.hide();
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
@@ -617,7 +638,10 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_jButtonEliminarMouseClicked
 
     private void jButtonSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSolicitarActionPerformed
-        if (jTextFielNom.getText().equals("")
+        
+        switch (caseVentana) {
+            case 1:
+                if (jTextFielNom.getText().equals("")
                 || jTextFielCp.getText().equals("")
                 || jTextFielDir.getText().equals("")
                 || jTextFielTel.getText().equals("")) {
@@ -632,8 +656,32 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             solic.setTelefono(jTextFielTel.getText());
             //   JOptionPane.showMessageDialog(null, "solicitud exitosa");
 
-            new TransporteView(solic).setVisible(true);
+            new TransporteView(solic,1).setVisible(true);
             this.hide();
+        }
+                break;
+            case 2:
+                 if (jTextFielNom.getText().equals("")
+                || jTextFielCp.getText().equals("")
+                || jTextFielDir.getText().equals("")
+                || jTextFielTel.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "seleccione un campo de la tabla",
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+        } else {
+            // solicitar
+            Destino solic = new Destino();
+            solic.setNombre(jTextFielNom.getText());
+            solic.setDireccion(jTextFielDir.getText());
+            solic.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
+            solic.setTelefono(jTextFielTel.getText());
+            //   JOptionPane.showMessageDialog(null, "solicitud exitosa");
+
+            new Solicitar(transporte, solic).setVisible(true);
+            this.hide();
+        }
+                break;
+            default:
+                throw new AssertionError();
         }
 
     }//GEN-LAST:event_jButtonSolicitarActionPerformed

@@ -26,6 +26,7 @@ public class TransporteView extends javax.swing.JFrame {
     private int xMouse;
     private int yMouse;
     Transporte trans = new Transporte();
+    private int caseVentana =0;
 
     public TransporteView() {
         initComponents();
@@ -39,8 +40,9 @@ public class TransporteView extends javax.swing.JFrame {
 
     }
 
-    public TransporteView(Destino destino) {
+    public TransporteView(Destino destino, int caseVentana) {
         initComponents();
+        this.caseVentana=caseVentana;
         setLocationRelativeTo(null);
         listaTransporte = new ArrayList<>();
         model = (DefaultTableModel) jTableTransporte.getModel();
@@ -48,6 +50,19 @@ public class TransporteView extends javax.swing.JFrame {
         agregarTransportes();
         mostrarTransporte();
         this.solic = destino;
+
+    }
+    
+    public TransporteView(int caseVentana) {
+        this.caseVentana=caseVentana;
+        initComponents();
+        
+        setLocationRelativeTo(null);
+        listaTransporte = new ArrayList<>();
+        model = (DefaultTableModel) jTableTransporte.getModel();
+        TrasnporteC = new TransporteContoller();
+        agregarTransportes();
+        mostrarTransporte();
 
     }
 
@@ -263,7 +278,7 @@ public class TransporteView extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel4.setText("Seleccione el Transporte");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, -1, -1));
 
         jTextFielNom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -314,7 +329,7 @@ public class TransporteView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableTransporte);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 890, 130));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 890, 130));
 
         jTextFielAcien.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -471,7 +486,9 @@ public class TransporteView extends javax.swing.JFrame {
 
     private void jButtonSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSolicitarActionPerformed
 
-        if (jTextFielNom.getText().equals("")
+        switch (caseVentana) {
+            case 1:
+                if (jTextFielNom.getText().equals("")
                 || jTextFielAcien.getText().equals("")
                 || jTextFielPrecio.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Rellena todos los campos");
@@ -486,6 +503,28 @@ public class TransporteView extends javax.swing.JFrame {
                     jTextFielPrecio.getText()));
 
             new Solicitar(solicitarTransporte, this.solic).setVisible(true);
+        }
+                break;
+            case 2:
+                
+                if (jTextFielNom.getText().equals("")
+                || jTextFielAcien.getText().equals("")
+                || jTextFielPrecio.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Rellena todos los campos");
+        } else {
+            //botton solicitar
+
+            Transporte solicitarTransporte = new Transporte();
+            solicitarTransporte.setNombreTransport(jTextFielNom.getText());
+            solicitarTransporte.setNumAsiento(Integer.parseInt(
+                    jTextFielAcien.getText()));
+            solicitarTransporte.setPrecio(Integer.parseInt(
+                    jTextFielPrecio.getText()));
+
+            new Principal(2,solicitarTransporte).setVisible(true);
+            }
+                break;
+            default:
         }
 
     }//GEN-LAST:event_jButtonSolicitarActionPerformed
