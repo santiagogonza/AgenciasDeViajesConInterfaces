@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pojo.Destino;
 
@@ -25,6 +26,8 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     Login log = new Login();
     private List<Destino> listaDestino;
     private DestinoController DestinoC;
+    private int xMuase;
+    private int yMouse;
 
     // private DefaultTableModel mo;
     public Principal() {
@@ -55,6 +58,14 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             fila[4] = listaDestino.get(i).getTelefono();
             modelo.addRow(fila);
         }
+    }
+
+    public void limpiarDestino() {
+        jTextFielNom.setText("");
+        jTextFielCp.setText("");
+        jTextFielDir.setText("");
+        jTextFielTel.setText("");
+
     }
 
     public void agregarDatos() {
@@ -123,6 +134,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jButtonAgregar = new javax.swing.JButton();
         jButtonActualizar = new javax.swing.JButton();
         jTextFielDir = new javax.swing.JTextField();
@@ -142,6 +154,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
 
         jPanelPrincipal.setEnabled(false);
@@ -191,7 +204,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             jTable1.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        jPanelPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 930, 140));
+        jPanelPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 930, 140));
 
         jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
         jButtonSalir.setToolTipText("Salir");
@@ -209,12 +222,12 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 450, 70, 40));
+        jPanelPrincipal.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 470, 70, 40));
 
         jLabel1.setFont(new java.awt.Font("Lato Black", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Agencias de viajes Miahuatlán");
-        jPanelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 500, -1));
+        jPanelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 500, -1));
 
         jTextFielNom.setBackground(new java.awt.Color(255, 255, 204));
         jTextFielNom.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -223,23 +236,37 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                 jTextFielNomActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jTextFielNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 170, -1));
+        jTextFielNom.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFielNomKeyTyped(evt);
+            }
+        });
+        jPanelPrincipal.add(jTextFielNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 200, -1));
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
-        jLabel2.setText("Destino: ");
-        jPanelPrincipal.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Lugar de Destino: ");
+        jPanelPrincipal.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 250, -1));
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Código Postal:");
-        jPanelPrincipal.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+        jPanelPrincipal.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Dirección:");
         jPanelPrincipal.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
-        jLabel5.setText("Télefono:");
-        jPanelPrincipal.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, -1, -1));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Teléfono:");
+        jPanelPrincipal.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Seleccione el destino");
+        jPanelPrincipal.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
 
         jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/agre.png"))); // NOI18N
         jButtonAgregar.setToolTipText("Agregar");
@@ -283,10 +310,25 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                 jTextFielDirActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jTextFielDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 180, -1));
+        jTextFielDir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFielDirKeyTyped(evt);
+            }
+        });
+        jPanelPrincipal.add(jTextFielDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 210, -1));
 
         jTextFielCp.setBackground(new java.awt.Color(255, 255, 204));
-        jPanelPrincipal.add(jTextFielCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 170, -1));
+        jTextFielCp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFielCpActionPerformed(evt);
+            }
+        });
+        jTextFielCp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFielCpKeyTyped(evt);
+            }
+        });
+        jPanelPrincipal.add(jTextFielCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 200, -1));
 
         jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/basura.png"))); // NOI18N
         jButtonEliminar.setToolTipText("Eliminar");
@@ -310,7 +352,17 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jPanelPrincipal.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 70, 40));
 
         jTextFielTel.setBackground(new java.awt.Color(255, 255, 204));
-        jPanelPrincipal.add(jTextFielTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 180, -1));
+        jTextFielTel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFielTelActionPerformed(evt);
+            }
+        });
+        jTextFielTel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFielTelKeyTyped(evt);
+            }
+        });
+        jPanelPrincipal.add(jTextFielTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, 210, -1));
 
         jButtonSolicitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/solicitar.png"))); // NOI18N
         jButtonSolicitar.setToolTipText("Solicitar");
@@ -330,8 +382,20 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jPanelPrincipal.add(jButtonSolicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 170, 70, 40));
 
         fondo.setForeground(new java.awt.Color(51, 51, 51));
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo.jpg"))); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nature-g2f407e47e_1920.jpg"))); // NOI18N
+        fondo.setOpaque(true);
         jPanelPrincipal.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 970, 570));
+
+        menuBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                menuBarMouseDragged(evt);
+            }
+        });
+        menuBar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuBarMousePressed(evt);
+            }
+        });
 
         fileMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         fileMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/menu1.png"))); // NOI18N
@@ -449,21 +513,34 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
     private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
         //agregar
+        if (jTextFielCp.getText().equals("") || jTextFielDir.getText().equals("") || jTextFielNom.getText().equals("") || jTextFielTel.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe estar rellenado todos los cuadros de texto");
+        } else {
+            Destino dest = DestinoC.obtenerUnDestino(listaDestino, Integer.parseInt(jTextFielCp.getText()));
 
-        Destino dest = new Destino();
-        dest.setIdlugar(listaDestino.size() + 1);
-        dest.setNombre(jTextFielNom.getText());
-        dest.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
-        dest.setDireccion(jTextFielDir.getText());
-        dest.setTelefono(jTextFielTel.getText());
+            if (dest == null) {
+                Destino destino = new Destino();
 
-        jTextFielNom.setText("");
-        jTextFielCp.setText("");
-        jTextFielDir.setText("");
-        jTextFielTel.setText("");
+                if (jTextFielNom.getText().equals("")
+                        || jTextFielCp.getText().equals("")
+                        || jTextFielDir.getText().equals("")
+                        || jTextFielTel.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Rellena todos los campos",
+                            "ADVERTETNCIA", JOptionPane.WARNING_MESSAGE);
 
-        DestinoC.crearDestino(listaDestino, dest);
-        DestinoC.mostrarDestino(listaDestino, modelo);
+                }
+                destino.setIdlugar(listaDestino.size() + 1);
+                destino.setNombre(jTextFielNom.getText());
+                destino.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
+                destino.setDireccion(jTextFielDir.getText());
+                destino.setTelefono(jTextFielTel.getText());
+
+                DestinoC.crearDestino(listaDestino, destino);
+                DestinoC.mostrarDestino(listaDestino, modelo);
+            } else {
+                JOptionPane.showMessageDialog(null,"El destino ya existe");
+            }
+        }
 
 
     }//GEN-LAST:event_jButtonAgregarActionPerformed
@@ -479,38 +556,48 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
 
         //actualizar
-        Destino des3 = DestinoC.obtenerUnDestino(listaDestino, Integer.parseInt(jTextFielCp.getText()));
-        Destino des = new Destino();
-        des.setIdlugar(des3.getIdlugar());
+        if (jTextFielCp.getText().equals("")
+                || jTextFielNom.getText().equals("")
+                || jTextFielDir.getText().equals("")
+                || jTextFielTel.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Rellena todos los campos");
 
-        des.setNombre(jTextFielNom.getText());
-        des.setDireccion(jTextFielDir.getText());
-        des.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
-        des.setTelefono(jTextFielTel.getText());
-        DestinoC.actualizarDestino(listaDestino, des);
-        DestinoC.mostrarDestino(listaDestino, modelo);
+        } else {
+            Destino des = new Destino();
+            des.setIdlugar(des.getIdlugar());
 
-        jTextFielNom.setText("");
-        jTextFielCp.setText("");
-        jTextFielDir.setText("");
-        jTextFielTel.setText("");
+            des.setNombre(jTextFielNom.getText());
+            des.setDireccion(jTextFielDir.getText());
+            des.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
+            des.setTelefono(jTextFielTel.getText());
+            DestinoC.actualizarDestino(listaDestino, des);
+            DestinoC.mostrarDestino(listaDestino, modelo);
 
-        jTextFielNom.setEditable(true);
-        jTextFielCp.setEditable(true);
-        jTextFielDir.setEditable(true);
-        jTextFielTel.setEditable(true);
-        mostrarDestino();
+            jTextFielNom.setEditable(true);
+            jTextFielCp.setEditable(false);
+            jTextFielDir.setEditable(true);
+            jTextFielTel.setEditable(true);
+            mostrarDestino();
+        }
+
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         //botton eliminar
-        jTextFielNom.setText("");
-        jTextFielCp.setText("");
-        jTextFielDir.setText("");
-        jTextFielTel.setText("");
-        String nombre = jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString();
-        DestinoC.eliminarDestino(listaDestino, nombre);
-        DestinoC.mostrarDestino(listaDestino, modelo);
+        if (jTextFielNom.getText().equals("")
+                || jTextFielCp.getText().equals("")
+                || jTextFielDir.getText().equals("")
+                || jTextFielTel.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "seleccione un campo de la tabla",
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+        } else {
+           
+            String nombre = jTextFielNom.getText();
+            DestinoC.eliminarDestino(listaDestino, nombre);
+            DestinoC.mostrarDestino(listaDestino, modelo);
+        }
+        limpiarDestino();
+
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -530,16 +617,25 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_jButtonEliminarMouseClicked
 
     private void jButtonSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSolicitarActionPerformed
+        if (jTextFielNom.getText().equals("")
+                || jTextFielCp.getText().equals("")
+                || jTextFielDir.getText().equals("")
+                || jTextFielTel.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "seleccione un campo de la tabla",
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+        } else {
+            // solicitar
+            Destino solic = new Destino();
+            solic.setNombre(jTextFielNom.getText());
+            solic.setDireccion(jTextFielDir.getText());
+            solic.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
+            solic.setTelefono(jTextFielTel.getText());
+            //   JOptionPane.showMessageDialog(null, "solicitud exitosa");
 
-        // solicitar
-        Destino solic = new Destino();
-        solic.setNombre(jTextFielNom.getText());
-        solic.setDireccion(jTextFielDir.getText());
-        solic.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
-        solic.setTelefono(jTextFielTel.getText());
-       
-       
-        new Solicitar(solic).setVisible(true);
+            new TransporteView(solic).setVisible(true);
+            this.hide();
+        }
+
     }//GEN-LAST:event_jButtonSolicitarActionPerformed
 
     private void jButtonSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseEntered
@@ -548,7 +644,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_jButtonSalirMouseEntered
 
     private void jButtonSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseExited
-       jButtonSalir.setBackground(Color.white);
+        jButtonSalir.setBackground(Color.white);
     }//GEN-LAST:event_jButtonSalirMouseExited
 
     private void fileMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fileMenuMouseEntered
@@ -556,15 +652,15 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_fileMenuMouseEntered
 
     private void jButtonAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAgregarMouseEntered
-      jButtonAgregar.setBackground(Color.green);
+        jButtonAgregar.setBackground(Color.green);
     }//GEN-LAST:event_jButtonAgregarMouseEntered
 
     private void jButtonAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAgregarMouseExited
-       jButtonAgregar.setBackground(Color.white);
+        jButtonAgregar.setBackground(Color.white);
     }//GEN-LAST:event_jButtonAgregarMouseExited
 
     private void jButtonActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonActualizarMouseEntered
-      jButtonActualizar.setBackground(Color.green);
+        jButtonActualizar.setBackground(Color.green);
     }//GEN-LAST:event_jButtonActualizarMouseEntered
 
     private void jButtonActualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonActualizarMouseExited
@@ -572,11 +668,11 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_jButtonActualizarMouseExited
 
     private void jButtonEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseEntered
-       jButtonEliminar.setBackground(Color.green);
+        jButtonEliminar.setBackground(Color.green);
     }//GEN-LAST:event_jButtonEliminarMouseEntered
 
     private void jButtonEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseExited
-       jButtonEliminar.setBackground(Color.white);
+        jButtonEliminar.setBackground(Color.white);
     }//GEN-LAST:event_jButtonEliminarMouseExited
 
     private void jButtonSolicitarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSolicitarMouseEntered
@@ -584,8 +680,82 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_jButtonSolicitarMouseEntered
 
     private void jButtonSolicitarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSolicitarMouseExited
-       jButtonSolicitar.setBackground(Color.white);
+        jButtonSolicitar.setBackground(Color.white);
     }//GEN-LAST:event_jButtonSolicitarMouseExited
+
+    private void jTextFielNomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielNomKeyTyped
+        /**
+         * método que válida Nombre para que solo ingrese letras
+         *
+         */
+        char caracter = evt.getKeyChar();
+        if (Character.isDigit(caracter)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this,
+                    "solo se permite letras en este campo",
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jTextFielNomKeyTyped
+
+    private void jTextFielDirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielDirKeyTyped
+        /**
+         * método que válida la dirección para que ingrese letras
+         
+        char caracter = evt.getKeyChar();
+        if (Character.isDigit(caracter)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this,
+                    "solo se permite letras en este campo",
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+        }
+*/
+    }//GEN-LAST:event_jTextFielDirKeyTyped
+
+    private void jTextFielTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielTelKeyTyped
+        /**
+         * válida el Jtexfild Nombre para que solo se ingrese numeros
+         */
+        char caracter = evt.getKeyChar();
+        if (Character.isLetter(caracter)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this,
+                    "solo se permite números en este campo", "ADVERTENCIA",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jTextFielTelKeyTyped
+
+    private void jTextFielTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielTelActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextFielTelActionPerformed
+
+    private void jTextFielCpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielCpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFielCpActionPerformed
+
+    private void jTextFielCpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielCpKeyTyped
+
+        char letra = evt.getKeyChar();
+        if (Character.isLetter(letra)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this,
+                    "solo se permite digitos en este campo",
+                    "ADVERTEMCIA", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jTextFielCpKeyTyped
+
+    private void menuBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBarMouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x- xMuase, y- yMouse);
+    }//GEN-LAST:event_menuBarMouseDragged
+
+    private void menuBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBarMousePressed
+        // TODO add your handling code here:
+        xMuase = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_menuBarMousePressed
 
     public static void main(String args[]) {
 
@@ -610,6 +780,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanelPrincipal;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;

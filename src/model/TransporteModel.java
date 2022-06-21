@@ -60,6 +60,7 @@ public class TransporteModel {
             fila[0] = lista.get(i).getIdTranspor();
             fila[1] = lista.get(i).getNombreTransport();
             fila[2] = lista.get(i).getNumAsiento();
+            fila[3] = lista.get(i).getPrecio();
 
             modelo.addRow(fila);
         }

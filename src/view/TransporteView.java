@@ -12,7 +12,9 @@ import controller.TransporteContoller;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import pojo.Destino;
 import pojo.Transporte;
 
 public class TransporteView extends javax.swing.JFrame {
@@ -20,6 +22,9 @@ public class TransporteView extends javax.swing.JFrame {
     private DefaultTableModel model;
     private List<Transporte> listaTransporte;
     private TransporteContoller TrasnporteC;
+    private Destino solic;
+    private int xMouse;
+    private int yMouse;
     Transporte trans = new Transporte();
 
     public TransporteView() {
@@ -33,8 +38,21 @@ public class TransporteView extends javax.swing.JFrame {
         mostrarTransporte();
 
     }
-    public void Transporte(){
-        
+
+    public TransporteView(Destino destino) {
+        initComponents();
+        setLocationRelativeTo(null);
+        listaTransporte = new ArrayList<>();
+        model = (DefaultTableModel) jTableTransporte.getModel();
+        TrasnporteC = new TransporteContoller();
+        agregarTransportes();
+        mostrarTransporte();
+        this.solic = destino;
+
+    }
+
+    public void Transporte() {
+
     }
 
     // funcion de mostrarTransporte
@@ -88,6 +106,12 @@ public class TransporteView extends javax.swing.JFrame {
         listaTransporte.add(trans4);
     }
 
+    public void limpiarTransporte() {
+        jTextFielNom.setText("");
+        jTextFielAcien.setText("");
+        jTextFielPrecio.setText("");
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -104,6 +128,7 @@ public class TransporteView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jTextFielNom = new javax.swing.JTextField();
         jTextFielPrecio = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -122,7 +147,18 @@ public class TransporteView extends javax.swing.JFrame {
         jMenuBar2.add(jMenu3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
 
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -213,19 +249,40 @@ public class TransporteView extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonSolicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 180, 80, -1));
 
-        jLabel1.setFont(new java.awt.Font("Monospaced", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         jLabel1.setText("Numero de Acientos:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Monospaced", 3, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         jLabel3.setText("Nombre del Transporte:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("DejaVu Sans", 3, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         jLabel2.setText("precio:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
-        jPanel1.add(jTextFielNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 190, 30));
-        jPanel1.add(jTextFielPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 190, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        jLabel4.setText("Seleccione el Transporte");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
+
+        jTextFielNom.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFielNomKeyTyped(evt);
+            }
+        });
+        jPanel1.add(jTextFielNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 190, 30));
+
+        jTextFielPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFielPrecioActionPerformed(evt);
+            }
+        });
+        jTextFielPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFielPrecioKeyTyped(evt);
+            }
+        });
+        jPanel1.add(jTextFielPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 190, -1));
 
         jTableTransporte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -249,6 +306,7 @@ public class TransporteView extends javax.swing.JFrame {
             }
         });
         jTableTransporte.setOpaque(false);
+        jTableTransporte.setSelectionBackground(new java.awt.Color(227, 226, 226));
         jTableTransporte.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableTransporteMouseClicked(evt);
@@ -256,8 +314,14 @@ public class TransporteView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableTransporte);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 890, 130));
-        jPanel1.add(jTextFielAcien, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 190, 30));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 890, 130));
+
+        jTextFielAcien.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFielAcienKeyTyped(evt);
+            }
+        });
+        jPanel1.add(jTextFielAcien, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 190, 30));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fon.jpg"))); // NOI18N
         jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-790, 10, 1740, 500));
@@ -321,44 +385,55 @@ public class TransporteView extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-
-        System.exit(0);
+        this.hide();
+        //System.exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
-        //agregar Transporte
-        Transporte trasn = new Transporte();
-        trasn.setIdTranspor(listaTransporte.size() + 1);
-        trasn.setNombreTransport(jTextFielNom.getText());
 
-        trasn.setNumAsiento(Integer.parseInt(jTextFielAcien.getText()));
-        jTextFielNom.setText("");
-        jTextFielAcien.setText("");
-        jTextFielPrecio.setText("");
-        TrasnporteC.crearTransporte(listaTransporte, trasn);
-        TrasnporteC.mostrarTransporte(listaTransporte, model);
+        if (jTextFielAcien.getText().equals("") || jTextFielNom.getText().equals("") || jTextFielPrecio.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe estar rellenado todos los cuadros de texto");
+        } else {
+            //agregar Transporte
+
+            Transporte trasn = new Transporte();
+            trasn.setIdTranspor(listaTransporte.size() + 1);
+            trasn.setNombreTransport(jTextFielNom.getText());
+
+            trasn.setNumAsiento(Integer.parseInt(jTextFielAcien.getText()));
+            jTextFielNom.setText("");
+            jTextFielAcien.setText("");
+            jTextFielPrecio.setText("");
+            TrasnporteC.crearTransporte(listaTransporte, trasn);
+            TrasnporteC.mostrarTransporte(listaTransporte, model);
+        }
+
 
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
     private void jTableTransporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableTransporteMouseClicked
 
+        jTextFielNom.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 1).toString());
+        jTextFielAcien.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 2).toString());
+        jTextFielPrecio.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 3).toString());
         //editar
         jTextFielAcien.setEditable(true);
 
-        jTextFielNom.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 1).toString());
-        jTextFielAcien.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 2).toString());
-        jTextFielPrecio.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(),3).toString());
     }//GEN-LAST:event_jTableTransporteMouseClicked
 
     private void jButtonElimiminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonElimiminarActionPerformed
         // botton eliminar
-        jTextFielNom.setText("");
-        jTextFielAcien.setText("");
-        jTextFielPrecio.setText("");
-        String nombre = jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 1).toString();
-        TrasnporteC.eliminarTransorte(listaTransporte, nombre);
-        TrasnporteC.mostrarTransporte(listaTransporte, model);
-
+        if (jTextFielNom.getText().equals("")
+                || jTextFielAcien.getText().equals("")
+                || jTextFielPrecio.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Seleccione un campo de la tabla",
+                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+        } else {
+            String nombre = jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 1).toString();
+            TrasnporteC.eliminarTransorte(listaTransporte, nombre);
+            TrasnporteC.mostrarTransporte(listaTransporte, model);
+        }
+        limpiarTransporte();
     }//GEN-LAST:event_jButtonElimiminarActionPerformed
 
     private void jButtonElimiminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonElimiminarMouseClicked
@@ -366,38 +441,53 @@ public class TransporteView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonElimiminarMouseClicked
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
+
         //boton actualizar
-        Transporte trasporteActulizado = TrasnporteC.obtenerTransporte(listaTransporte,Integer.parseInt(jTextFielPrecio.getText()));
-        Transporte transporteActualizar= new Transporte();
-        transporteActualizar.setNombreTransport(jTextFielNom.getText());
-        transporteActualizar.setNumAsiento(Integer.parseInt(jTextFielAcien.getText()));
-        transporteActualizar.setPrecio(Integer.parseInt(jTextFielPrecio.getText()));
-        TrasnporteC.actualizarTransporte(listaTransporte, trans);
-        TrasnporteC.mostrarTransporte(listaTransporte, model);
-        
-        jTextFielNom.setText("");
-        jTextFielAcien.setText("");
-        jTextFielPrecio.setText("");
-        
-        jTextFielNom.setEditable(true);
-        jTextFielAcien.setEditable(true);
-        jTextFielPrecio.setEditable(true);
-        mostrarTransporte();
-        
-        
+        //Transporte trasporteActulizado = TrasnporteC.obtenerTransporte(listaTransporte,Integer.parseInt(jTextFielPrecio.getText()));
+        if (jTextFielNom.getText().equals("")
+                || jTextFielAcien.getText().equals("")
+                || jTextFielPrecio.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Rellena todos los campos");
+        } else {
+
+            Transporte transporteActualizar = new Transporte();
+            transporteActualizar.setNombreTransport(jTextFielNom.getText());
+            transporteActualizar.setNumAsiento(Integer.parseInt(jTextFielAcien.getText()));
+            transporteActualizar.setPrecio(Integer.parseInt(jTextFielPrecio.getText()));
+            TrasnporteC.actualizarTransporte(listaTransporte, trans);
+            TrasnporteC.mostrarTransporte(listaTransporte, model);
+
+            jTextFielNom.setText("");
+            jTextFielAcien.setText("");
+            jTextFielPrecio.setText("");
+
+            jTextFielNom.setEditable(true);
+            jTextFielAcien.setEditable(true);
+            jTextFielPrecio.setEditable(true);
+            mostrarTransporte();
+        }
+
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void jButtonSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSolicitarActionPerformed
-        //botton solicitar
-        
-        Transporte solicitarTransporte = new Transporte();
-        solicitarTransporte.setNombreTransport(jTextFielNom.getText());
-        solicitarTransporte.setNumAsiento(Integer.parseInt(
-                jTextFielAcien.getText()));
-                solicitarTransporte.setPrecio(Integer.parseInt(
-                jTextFielPrecio.getText()));
-        
-        new Solicitar(solicitarTransporte).setVisible(true);
+
+        if (jTextFielNom.getText().equals("")
+                || jTextFielAcien.getText().equals("")
+                || jTextFielPrecio.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Rellena todos los campos");
+        } else {
+            //botton solicitar
+
+            Transporte solicitarTransporte = new Transporte();
+            solicitarTransporte.setNombreTransport(jTextFielNom.getText());
+            solicitarTransporte.setNumAsiento(Integer.parseInt(
+                    jTextFielAcien.getText()));
+            solicitarTransporte.setPrecio(Integer.parseInt(
+                    jTextFielPrecio.getText()));
+
+            new Solicitar(solicitarTransporte, this.solic).setVisible(true);
+        }
+
     }//GEN-LAST:event_jButtonSolicitarActionPerformed
 
     private void jButtonSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseEntered
@@ -415,11 +505,11 @@ public class TransporteView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAgregarMouseEntered
 
     private void jButtonAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAgregarMouseExited
-       jButtonAgregar.setBackground(Color.white);
+        jButtonAgregar.setBackground(Color.white);
     }//GEN-LAST:event_jButtonAgregarMouseExited
 
     private void jButtonActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonActualizarMouseEntered
-       jButtonActualizar.setBackground(Color.green);
+        jButtonActualizar.setBackground(Color.green);
     }//GEN-LAST:event_jButtonActualizarMouseEntered
 
     private void jButtonActualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonActualizarMouseExited
@@ -427,11 +517,11 @@ public class TransporteView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonActualizarMouseExited
 
     private void jButtonElimiminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonElimiminarMouseEntered
-       jButtonElimiminar.setBackground(Color.green);
+        jButtonElimiminar.setBackground(Color.green);
     }//GEN-LAST:event_jButtonElimiminarMouseEntered
 
     private void jButtonElimiminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonElimiminarMouseExited
-       jButtonElimiminar.setBackground(Color.white);
+        jButtonElimiminar.setBackground(Color.white);
     }//GEN-LAST:event_jButtonElimiminarMouseExited
 
     private void jButtonSolicitarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSolicitarMouseEntered
@@ -441,6 +531,61 @@ public class TransporteView extends javax.swing.JFrame {
     private void jButtonSolicitarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSolicitarMouseExited
         jButtonSolicitar.setBackground(Color.white);
     }//GEN-LAST:event_jButtonSolicitarMouseExited
+
+    private void jTextFielNomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielNomKeyTyped
+        /**
+         * método que válida nombre de transporte para que solo ingrese letras
+         */
+        char letra = evt.getKeyChar();
+        if (Character.isDigit(letra)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this,
+                    "solo se permite letras en este campo",
+                    "ADVERTEMCIA", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jTextFielNomKeyTyped
+
+    private void jTextFielAcienKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielAcienKeyTyped
+        /**
+         * método que válida número de acientos para que solo se ingrese digitos
+         */
+        char letra = evt.getKeyChar();
+        if (Character.isLetter(letra)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this,
+                    "solo se permite digitos en este campo",
+                    "ADVERTEMCIA", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jTextFielAcienKeyTyped
+
+    private void jTextFielPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFielPrecioActionPerformed
+
+    private void jTextFielPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielPrecioKeyTyped
+
+        char letra = evt.getKeyChar();
+        if (Character.isLetter(letra)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this,
+                    "solo se permite digitos en este campo",
+                    "ADVERTEMCIA", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jTextFielPrecioKeyTyped
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x- xMouse, y- yMouse);
+        
+    }//GEN-LAST:event_formMouseDragged
+
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        // TODO add your handling code here:
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_formMousePressed
 
     public static void main(String args[]) {
 
@@ -462,6 +607,7 @@ public class TransporteView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
