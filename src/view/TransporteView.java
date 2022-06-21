@@ -27,6 +27,8 @@ public class TransporteView extends javax.swing.JFrame {
     private int yMouse;
     Transporte trans = new Transporte();
     private int caseVentana =0;
+    
+    private int id;
 
     public TransporteView() {
         initComponents();
@@ -427,7 +429,7 @@ public class TransporteView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
     private void jTableTransporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableTransporteMouseClicked
-
+        id=Integer.parseInt(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 0).toString());
         jTextFielNom.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 1).toString());
         jTextFielAcien.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 2).toString());
         jTextFielPrecio.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 3).toString());
@@ -466,10 +468,11 @@ public class TransporteView extends javax.swing.JFrame {
         } else {
 
             Transporte transporteActualizar = new Transporte();
+            transporteActualizar.setIdTranspor(id);
             transporteActualizar.setNombreTransport(jTextFielNom.getText());
             transporteActualizar.setNumAsiento(Integer.parseInt(jTextFielAcien.getText()));
             transporteActualizar.setPrecio(Integer.parseInt(jTextFielPrecio.getText()));
-            TrasnporteC.actualizarTransporte(listaTransporte, trans);
+            TrasnporteC.actualizarTransporte(listaTransporte, transporteActualizar);
             TrasnporteC.mostrarTransporte(listaTransporte, model);
 
             jTextFielNom.setText("");
@@ -479,7 +482,7 @@ public class TransporteView extends javax.swing.JFrame {
             jTextFielNom.setEditable(true);
             jTextFielAcien.setEditable(true);
             jTextFielPrecio.setEditable(true);
-            mostrarTransporte();
+            //mostrarTransporte();
         }
 
     }//GEN-LAST:event_jButtonActualizarActionPerformed

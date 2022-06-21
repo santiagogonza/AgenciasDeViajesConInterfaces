@@ -45,7 +45,7 @@ public class TransporteModel {
     //función actualizar
     public void actualizarTransporte(List<Transporte> lista, Transporte transport) {
         for (int i = 0; i < lista.size(); i++) {
-            if (lista.get(i).getNombreTransport().equals(transport.getNombreTransport())) {
+            if (lista.get(i).getIdTranspor()==(transport.getIdTranspor())) {
                 lista.set(i, transport);
                 break;
             }
