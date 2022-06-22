@@ -1,9 +1,9 @@
 /*
 @uthor: Gonzalo Santiago Garcia 
 Fecha de Creación: 1 de junio del 2022
-Fecha de actualización: 6 de junio del 2022
-Descripción: en está parte creo el jFrame de transporte en la cual desarrille
- los métodos que creí que se acuparan para la ejecución del programa
+Fecha de actualización: 21 de junio del 2022
+Descripción: en está parte creo el jFrame de transporte en la cual desarrolle
+ los métodos que creí que se acuparán para la ejecución del programa
 
  */
 package view;
@@ -18,7 +18,9 @@ import pojo.Destino;
 import pojo.Transporte;
 
 public class TransporteView extends javax.swing.JFrame {
-
+/**
+ * Declaración de los tipos de datos
+ */
     private DefaultTableModel model;
     private List<Transporte> listaTransporte;
     private TransporteContoller TrasnporteC;
@@ -26,22 +28,28 @@ public class TransporteView extends javax.swing.JFrame {
     private int xMouse;
     private int yMouse;
     Transporte trans = new Transporte();
-    private int caseVentana =0;
-    
+    private int caseVentana =0; 
     private int id;
 
+    /**
+     * inicializa el método transporte 
+     */
     public TransporteView() {
         initComponents();
         setLocationRelativeTo(null);
-
         listaTransporte = new ArrayList<>();
         model = (DefaultTableModel) jTableTransporte.getModel();
         TrasnporteC = new TransporteContoller();
+        //hace la llamada del método agregar transporte y mostrarTransporte
         agregarTransportes();
         mostrarTransporte();
 
     }
 
+    /**
+     * destino: pasa los parámetros de la clase Destino
+     * caseVentana: pasa los parámetros de la clase principal
+     */
     public TransporteView(Destino destino, int caseVentana) {
         initComponents();
         this.caseVentana=caseVentana;
@@ -49,12 +57,18 @@ public class TransporteView extends javax.swing.JFrame {
         listaTransporte = new ArrayList<>();
         model = (DefaultTableModel) jTableTransporte.getModel();
         TrasnporteC = new TransporteContoller();
+        //hace la llamada del método agregarTransporte y muestra los datos del
+        // transporte
         agregarTransportes();
         mostrarTransporte();
         this.solic = destino;
 
     }
     
+    /**
+     * caseVentana : declaramos el método Transporte con el parámetro de la 
+     * caseVentana
+     */
     public TransporteView(int caseVentana) {
         this.caseVentana=caseVentana;
         initComponents();
@@ -62,6 +76,7 @@ public class TransporteView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         listaTransporte = new ArrayList<>();
         model = (DefaultTableModel) jTableTransporte.getModel();
+        //intancia la el método transportec
         TrasnporteC = new TransporteContoller();
         agregarTransportes();
         mostrarTransporte();
@@ -72,7 +87,10 @@ public class TransporteView extends javax.swing.JFrame {
 
     }
 
-    // funcion de mostrarTransporte
+    /*
+    función de mostrarTransporte obtiene los datos de la clase transporte y los 
+    agrega en la tabla
+    */
     public void mostrarTransporte() {
         model.setRowCount(0);
         for (int i = 0; i < listaTransporte.size(); i++) {
@@ -85,8 +103,11 @@ public class TransporteView extends javax.swing.JFrame {
         }
     }
 
-    // función de agregarTransporte
-    public void agregarTransportes() {
+   /**
+    * función de agregarTransporte envia los datos de que son necesario de la
+    * clase transporte con sus respectivos tipos datos
+    */
+        public void agregarTransportes() {
         Transporte trans = new Transporte();
         trans.setIdTranspor(1);
         trans.setNombreTransport("Motocicletas");
@@ -123,6 +144,9 @@ public class TransporteView extends javax.swing.JFrame {
         listaTransporte.add(trans4);
     }
 
+        /**
+         * método limpiarTransporte limpia los jtexfield de los cuadros de texto
+         */
     public void limpiarTransporte() {
         jTextFielNom.setText("");
         jTextFielAcien.setText("");
@@ -267,7 +291,7 @@ public class TransporteView extends javax.swing.JFrame {
         jPanel1.add(jButtonSolicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 180, 80, -1));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
-        jLabel1.setText("Numero de Acientos:");
+        jLabel1.setText("Número de Acientos:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
@@ -275,7 +299,7 @@ public class TransporteView extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
-        jLabel2.setText("precio:");
+        jLabel2.setText("Precio:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
@@ -311,7 +335,7 @@ public class TransporteView extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Id", "Nombre", "N. Acientos", "Precio"
+                "Id", "Nombre", "Numero de acientos", "Precio"
             }
         ) {
             Class[] types = new Class [] {
@@ -388,31 +412,37 @@ public class TransporteView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 // se declaran los botones que contiene el ménu 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-
+        //hace instancia a la ventana Principal 
         new Principal().setVisible(true);
         // método que oculta la venta  principal
         this.hide();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+      //hace la instancia a la ventana Reservación y lo oculta
         new Reservacion().setVisible(true);
         this.hide();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         this.hide();
-        //System.exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
-
-        if (jTextFielAcien.getText().equals("") || jTextFielNom.getText().equals("") || jTextFielPrecio.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe estar rellenado todos los cuadros de texto");
+        /**
+         * hace la comparación de los datos obtenidos si es que están iguales 
+         * si no manda un mensaje de rellenar los cuadros de textos
+         */
+        if (jTextFielAcien.getText().equals("") 
+                || jTextFielNom.getText().equals("") 
+                || jTextFielPrecio.getText().equals("")) {
+            JOptionPane.showMessageDialog(null,
+                    "Debe estar rellenado todos los cuadros de texto");
         } else {
-            //agregar Transporte
-
+            /**
+             * agregar Transporte realiza la intancia a la clase Transporte y
+             * envia
+            */
             Transporte trasn = new Transporte();
             trasn.setIdTranspor(listaTransporte.size() + 1);
             trasn.setNombreTransport(jTextFielNom.getText());
@@ -460,7 +490,6 @@ public class TransporteView extends javax.swing.JFrame {
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
 
         //boton actualizar
-        //Transporte trasporteActulizado = TrasnporteC.obtenerTransporte(listaTransporte,Integer.parseInt(jTextFielPrecio.getText()));
         if (jTextFielNom.getText().equals("")
                 || jTextFielAcien.getText().equals("")
                 || jTextFielPrecio.getText().equals("")) {

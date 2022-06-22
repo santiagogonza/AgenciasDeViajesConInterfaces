@@ -1,9 +1,9 @@
 /*
 autor: Gonzalo Santiago Garcia
 fecha de creación: 1 de junio del 2022
-fecha de actualización: 9 de junio del 2022 
+fecha de actualización: 21 de junio del 2022 
 descripción: creo la ventana principal donde presento la lista de los 
- lugares que tengo de recomendocion de miahuatlán 
+ lugares que tengo de recomendocion de Miahuatlán 
  */
 package view;
 
@@ -21,7 +21,7 @@ import pojo.Transporte;
 public class Principal extends javax.swing.JFrame implements ActionListener {
 
     /**
-     * Creates new form Principal
+     * Declaración de algunos de los datos que se ocupara dentro del programa
      */
     private DefaultTableModel modelo;
     Login log = new Login();
@@ -32,16 +32,14 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     private int yMouse;
     private int caseVentana=1;
 
-    // private DefaultTableModel mo;
+    /**
+     * inicializa el método initcomponet
+     */
     public Principal() {
         initComponents();
-        // this.setSize(975, 580);
         setLocationRelativeTo(null);
-        //setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
         modelo = (DefaultTableModel) jTable1.getModel();
-
         log.setVisible(false);
         listaDestino = new ArrayList<>();
         DestinoC = new DestinoController();
@@ -49,18 +47,17 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         mostrarDestino();
 
     }
-
+/**
+ * @param caseVentana recive los parámetros de la vantana destino
+ * @param transporte recive los parámetros clase transporte
+ */
     Principal(int caseVentana, Transporte transporte) {
         this.caseVentana = caseVentana;
         this.transporte = transporte;
         initComponents();
-        // this.setSize(975, 580);
         setLocationRelativeTo(null);
-        //setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
         modelo = (DefaultTableModel) jTable1.getModel();
-
         log.setVisible(false);
         listaDestino = new ArrayList<>();
         DestinoC = new DestinoController();
@@ -68,6 +65,9 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         mostrarDestino();
     }
 
+    /**
+     * Método mostrarDestino obtiene los datos de la clase Destino
+     */
     public void mostrarDestino() {
         modelo.setRowCount(0);
         for (int i = 0; i < listaDestino.size(); i++) {
@@ -80,7 +80,10 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             modelo.addRow(fila);
         }
     }
-
+/**
+ * Método que limpia los jtfield de la clase destino que se muestra en los 
+ * cuadros de jtexfield 
+ */
     public void limpiarDestino() {
         jTextFielNom.setText("");
         jTextFielCp.setText("");
@@ -89,13 +92,16 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
     }
 
+    /**
+     * Método que declara los datos que se mostrarán en la tabla Destino
+     */
     public void agregarDatos() {
         Destino destino1 = new Destino();
         destino1.setIdlugar(1);
         destino1.setNombre("Santa Cruz Xitla");
         destino1.setCodigoPost(70823);
         destino1.setDireccion("Precidencia Municipal de Xitla");
-        destino1.setTelefono("+52 951 512 0300");
+        destino1.setTelefono("951 512 0300");
         listaDestino.add(destino1);
 
         Destino destino2 = new Destino();
@@ -103,7 +109,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         destino2.setNombre("San Idelfonso Amatlán");
         destino2.setCodigoPost(70828);
         destino2.setDireccion("Precidencia Municipal Idelfonso");
-        destino2.setTelefono("+52 957 572 0438");
+        destino2.setTelefono("957 572 0438");
         listaDestino.add(destino2);
 
         Destino destino3 = new Destino();
@@ -111,7 +117,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         destino3.setNombre("Monjas");
         destino3.setCodigoPost(70826);
         destino3.setDireccion("Municipio de Monjas");
-        destino3.setTelefono("+52 951 105 3048");
+        destino3.setTelefono("951 105 3048");
         listaDestino.add(destino3);
 
         Destino destino4 = new Destino();
@@ -119,7 +125,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         destino4.setNombre("Santo Tomás Tamazulapan");
         destino4.setCodigoPost(70866);
         destino4.setDireccion("Municipio de Tamazulapan");
-        destino4.setTelefono("+52 951 510 5089");
+        destino4.setTelefono("951 510 5089");
         listaDestino.add(destino4);
 
         Destino destino5 = new Destino();
@@ -127,7 +133,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         destino5.setNombre("Santa Catarina Cuixtla");
         destino5.setCodigoPost(70830);
         destino5.setDireccion("Municipio de Cuixtla");
-        destino5.setTelefono("+52 951 533 0052");
+        destino5.setTelefono("951 533 0052");
         listaDestino.add(destino5);
 
         Destino destino6 = new Destino();
@@ -135,7 +141,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         destino6.setNombre("San Andrés Paxtlán");
         destino6.setCodigoPost(70868);
         destino6.setDireccion("Municipio de San Andrés");
-        destino6.setTelefono("+52 951 488 3200");
+        destino6.setTelefono("951 488 3200");
         listaDestino.add(destino6);
     }
 
@@ -503,13 +509,14 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_openMenuItemActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        // TODO add your handling code here:
-
+        // boton salir cierra el programa 
         System.exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void saveMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMenuItemMouseClicked
-        // TODO add your handling code here:
+        /*
+        Hace una instancia a la ventana Transporte y lo culta 
+        */
         new TransporteView(2).setVisible(true);
         this.hide();
     }//GEN-LAST:event_saveMenuItemMouseClicked
@@ -520,35 +527,43 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_fileMenuActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
-
+        //Hace una instancia a la ventana transporte y lo oculta
         new TransporteView(2).setVisible(true);
         this.hide();
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
 
-        // reservacion
+        // Hace una instancia a la ventana Reservacion y lo oculta
         new Reservacion().setVisible(true);
         this.hide();
     }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
     private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
-        //agregar
-        if (jTextFielCp.getText().equals("") || jTextFielDir.getText().equals("") || jTextFielNom.getText().equals("") || jTextFielTel.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe estar rellenado todos los cuadros de texto");
+        //Boton agregar
+        /**
+         * método que agrega los datos y hace la comparación si es que no están
+         * rellenados los campos, ya que a traves del método obtenerUnDestino 
+         * obtiene los datos y los campara
+         */
+        if (jTextFielCp.getText().equals("") || 
+                jTextFielDir.getText().equals("") 
+                || jTextFielNom.getText().equals("") 
+                || jTextFielTel.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, 
+                    "Debe estar rellenado todos los cuadros de texto");
         } else {
-            Destino dest = DestinoC.obtenerUnDestino(listaDestino, Integer.parseInt(jTextFielCp.getText()));
+            Destino dest = DestinoC.obtenerUnDestino(listaDestino,
+                    Integer.parseInt(jTextFielCp.getText()));
 
             if (dest == null) {
                 Destino destino = new Destino();
-
                 if (jTextFielNom.getText().equals("")
                         || jTextFielCp.getText().equals("")
                         || jTextFielDir.getText().equals("")
                         || jTextFielTel.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Rellena todos los campos",
                             "ADVERTETNCIA", JOptionPane.WARNING_MESSAGE);
-
                 }
                 destino.setIdlugar(listaDestino.size() + 1);
                 destino.setNombre(jTextFielNom.getText());
@@ -576,7 +591,11 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
 
-        //actualizar
+        /**
+         * Boton actualizar: hace la comparación si es que los campos de 
+         * jtexfield están rellenados si no manda una mensaje de advertencia que 
+         * los campos no están rellenados
+         * */
         if (jTextFielCp.getText().equals("")
                 || jTextFielNom.getText().equals("")
                 || jTextFielDir.getText().equals("")
@@ -593,11 +612,12 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             des.setTelefono(jTextFielTel.getText());
             DestinoC.actualizarDestino(listaDestino, des);
             DestinoC.mostrarDestino(listaDestino, modelo);
-
+            //se encarga de que dentro de la tabla se pueda editar 
             jTextFielNom.setEditable(true);
             jTextFielCp.setEditable(false);
             jTextFielDir.setEditable(true);
             jTextFielTel.setEditable(true);
+            //método que llama mostrar destino se encarga de mostrar los datos
             mostrarDestino();
         }
 
@@ -609,23 +629,25 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                 || jTextFielCp.getText().equals("")
                 || jTextFielDir.getText().equals("")
                 || jTextFielTel.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "seleccione un campo de la tabla",
+            JOptionPane.showMessageDialog(null, "Seleccione un campo de la tabla",
                     "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
         } else {
-           
+            //Realiza la comparación de los datos 
             String nombre = jTextFielNom.getText();
+            //Hace la llamada del método eliminarDestino y mostrar el destino
             DestinoC.eliminarDestino(listaDestino, nombre);
             DestinoC.mostrarDestino(listaDestino, modelo);
         }
+        //hace la llamada al método limpiarDestino
         limpiarDestino();
 
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-        // editarTable;
+        /*Actualizar: con método setEditable se puede seleccionar los datos de
+        la tabla para obtener los atributos de la clase Destino
+        */
         jTextFielCp.setEditable(false);
-
         jTextFielNom.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
         jTextFielCp.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
         jTextFielDir.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
@@ -654,8 +676,6 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             solic.setDireccion(jTextFielDir.getText());
             solic.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
             solic.setTelefono(jTextFielTel.getText());
-            //   JOptionPane.showMessageDialog(null, "solicitud exitosa");
-
             new TransporteView(solic,1).setVisible(true);
             this.hide();
         }
@@ -665,17 +685,18 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                 || jTextFielCp.getText().equals("")
                 || jTextFielDir.getText().equals("")
                 || jTextFielTel.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "seleccione un campo de la tabla",
+            JOptionPane.showMessageDialog(null, 
+                    "eleccione un campo de la tabla",
                     "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
         } else {
-            // solicitar
+            /*
+            solicitar envai los los datos la clase Destino
+            */
             Destino solic = new Destino();
             solic.setNombre(jTextFielNom.getText());
             solic.setDireccion(jTextFielDir.getText());
             solic.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
             solic.setTelefono(jTextFielTel.getText());
-            //   JOptionPane.showMessageDialog(null, "solicitud exitosa");
-
             new Solicitar(transporte, solic).setVisible(true);
             this.hide();
         }
@@ -734,7 +755,6 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     private void jTextFielNomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielNomKeyTyped
         /**
          * método que válida Nombre para que solo ingrese letras
-         *
          */
         char caracter = evt.getKeyChar();
         if (Character.isDigit(caracter)) {
@@ -746,17 +766,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_jTextFielNomKeyTyped
 
     private void jTextFielDirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielDirKeyTyped
-        /**
-         * método que válida la dirección para que ingrese letras
-         
-        char caracter = evt.getKeyChar();
-        if (Character.isDigit(caracter)) {
-            evt.consume();
-            JOptionPane.showMessageDialog(this,
-                    "solo se permite letras en este campo",
-                    "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
-        }
-*/
+       
     }//GEN-LAST:event_jTextFielDirKeyTyped
 
     private void jTextFielTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielTelKeyTyped
@@ -773,16 +783,16 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_jTextFielTelKeyTyped
 
     private void jTextFielTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielTelActionPerformed
-        // TODO add your handling code here:
+
 
     }//GEN-LAST:event_jTextFielTelActionPerformed
 
     private void jTextFielCpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielCpActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextFielCpActionPerformed
 
     private void jTextFielCpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielCpKeyTyped
-
+        // válida el jtexfieldCp para que solo se ingrese digitos
         char letra = evt.getKeyChar();
         if (Character.isLetter(letra)) {
             evt.consume();
@@ -793,14 +803,14 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_jTextFielCpKeyTyped
 
     private void menuBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBarMouseDragged
-        // TODO add your handling code here:
+        //método para obtener el eje de las x y y
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x- xMuase, y- yMouse);
     }//GEN-LAST:event_menuBarMouseDragged
 
     private void menuBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBarMousePressed
-        // TODO add your handling code here:
+        // método que obtiene la posicipon de las x y y del mause
         xMuase = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_menuBarMousePressed

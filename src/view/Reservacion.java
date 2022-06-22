@@ -148,7 +148,7 @@ public class Reservacion extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Id", "Nombre", "N.Acientos", "Precio"
+                "Id", "Nombre", "Número de acientos", "Precio"
             }
         ) {
             Class[] types = new Class [] {
@@ -174,7 +174,7 @@ public class Reservacion extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Id", "Destino", "C.P", "Dirección", "Teléfono"
+                "Id", "Destino", "C.P.", "Dirección", "Teléfono"
             }
         ) {
             Class[] types = new Class [] {

@@ -216,7 +216,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="DejaVu Sans" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Numero de Acientos:"/>
+            <Property name="text" type="java.lang.String" value="N&#xfa;mero de Acientos:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -242,7 +242,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="DejaVu Sans" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="precio:"/>
+            <Property name="text" type="java.lang.String" value="Precio:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -302,7 +302,7 @@
                   <Table columnCount="4" rowCount="6">
                     <Column editable="true" title="Id" type="java.lang.Integer"/>
                     <Column editable="true" title="Nombre" type="java.lang.String"/>
-                    <Column editable="true" title="N. Acientos" type="java.lang.Integer"/>
+                    <Column editable="true" title="Numero de acientos" type="java.lang.Integer"/>
                     <Column editable="true" title="Precio" type="java.lang.Integer"/>
                   </Table>
                 </Property>

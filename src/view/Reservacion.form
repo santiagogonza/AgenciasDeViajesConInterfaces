@@ -243,7 +243,7 @@
                       <Table columnCount="4" rowCount="4">
                         <Column editable="true" title="Id" type="java.lang.Integer"/>
                         <Column editable="true" title="Nombre" type="java.lang.String"/>
-                        <Column editable="true" title="N.Acientos" type="java.lang.Integer"/>
+                        <Column editable="true" title="N&#xfa;mero de acientos" type="java.lang.Integer"/>
                         <Column editable="true" title="Precio" type="java.lang.Integer"/>
                       </Table>
                     </Property>
@@ -296,7 +296,7 @@
                       <Table columnCount="5" rowCount="4">
                         <Column editable="true" title="Id" type="java.lang.Integer"/>
                         <Column editable="true" title="Destino" type="java.lang.String"/>
-                        <Column editable="true" title="C.P" type="java.lang.String"/>
+                        <Column editable="true" title="C.P." type="java.lang.String"/>
                         <Column editable="true" title="Direcci&#xf3;n" type="java.lang.String"/>
                         <Column editable="true" title="Tel&#xe9;fono" type="java.lang.Object"/>
                       </Table>

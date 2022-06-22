@@ -136,7 +136,7 @@ public class Solicitar extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Id", "Destino", "C.P", "Dirección", "Telefono"
+                "Id", "Destino", "Código Postal", "Dirección", "Teléfono"
             }
         ) {
             Class[] types = new Class [] {
@@ -169,7 +169,7 @@ public class Solicitar extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Id", "Nombre", "N.Aciento", "Precio"
+                "Id", "Nombre", "Número de aciento", "Precio"
             }
         ) {
             Class[] types = new Class [] {
