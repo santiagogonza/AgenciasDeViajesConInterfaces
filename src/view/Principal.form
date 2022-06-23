@@ -54,6 +54,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="openMenuItemMouseEntered"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openMenuItemActionPerformed"/>
               </Events>
             </MenuItem>
@@ -176,7 +177,7 @@
                     <Column editable="false" title="Destino" type="java.lang.String"/>
                     <Column editable="false" title="C&#xf3;digo Postal" type="java.lang.String"/>
                     <Column editable="false" title="Direcci&#xf3;n" type="java.lang.String"/>
-                    <Column editable="false" title="T&#xe9;lefono" type="java.lang.String"/>
+                    <Column editable="false" title="Tel&#xe9;fono" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

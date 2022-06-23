@@ -207,7 +207,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Id", "Destino", "Código Postal", "Dirección", "Télefono"
+                "Id", "Destino", "Código Postal", "Dirección", "Teléfono"
             }
         ) {
             Class[] types = new Class [] {
@@ -453,6 +453,11 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         openMenuItem.setMnemonic('o');
         openMenuItem.setText("Inicio");
         openMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        openMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                openMenuItemMouseEntered(evt);
+            }
+        });
         openMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 openMenuItemActionPerformed(evt);
@@ -833,6 +838,10 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         xMuase = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_menuBarMousePressed
+
+    private void openMenuItemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openMenuItemMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_openMenuItemMouseEntered
 
     public static void main(String args[]) {
 

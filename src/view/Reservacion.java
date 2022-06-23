@@ -215,14 +215,15 @@ public class Reservacion extends javax.swing.JFrame {
 
         jPanelReservacion.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 670, 50));
 
-        jButton1.setText("Imprimir ");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/imprimir.png"))); // NOI18N
+        jButton1.setToolTipText("Imprimir");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanelReservacion.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 110, 40));
+        jPanelReservacion.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 70, 40));
 
         desktopPane.add(jPanelReservacion);
         jPanelReservacion.setBounds(0, 0, 760, 450);

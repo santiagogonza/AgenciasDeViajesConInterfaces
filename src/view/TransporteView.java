@@ -236,6 +236,7 @@ public class TransporteView extends javax.swing.JFrame {
         jPanel1.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 450, 80, 40));
 
         jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar.png"))); // NOI18N
+        jButtonAgregar.setToolTipText("Agregar");
         jButtonAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButtonAgregarMouseEntered(evt);
@@ -252,6 +253,7 @@ public class TransporteView extends javax.swing.JFrame {
         jPanel1.add(jButtonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 30, 80, -1));
 
         jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/actualizar.png"))); // NOI18N
+        jButtonActualizar.setToolTipText("Actualizar");
         jButtonActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButtonActualizarMouseEntered(evt);
@@ -268,6 +270,7 @@ public class TransporteView extends javax.swing.JFrame {
         jPanel1.add(jButtonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 80, 80, -1));
 
         jButtonElimiminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/eliminar.png"))); // NOI18N
+        jButtonElimiminar.setToolTipText("Eliminar");
         jButtonElimiminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonElimiminarMouseClicked(evt);
@@ -377,8 +380,7 @@ public class TransporteView extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFielAsiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 190, 30));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fon.jpg"))); // NOI18N
-        fondo.setDisabledIcon(null);
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo_transporte.jpg"))); // NOI18N
         jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-810, 10, 1760, 500));
 
         jMenu1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
