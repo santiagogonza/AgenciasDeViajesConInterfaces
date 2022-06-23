@@ -84,7 +84,6 @@ public class Login extends javax.swing.JFrame implements ActionListener {
         jLabel2Paword.setText("Contraseña:");
         jPanelLogin.add(jLabel2Paword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
-        usuario.setText("admin");
         usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usuarioActionPerformed(evt);
@@ -92,7 +91,6 @@ public class Login extends javax.swing.JFrame implements ActionListener {
         });
         jPanelLogin.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 170, 30));
 
-        pasword.setText("123");
         pasword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 paswordActionPerformed(evt);
