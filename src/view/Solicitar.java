@@ -1,20 +1,17 @@
 /*
 Autor: Gonzalo Santiago Garcia
 fecha de creación: 9 de junio del 2022
-fecha de actualización: 13 de junio del 2022
+fecha de actualización: 22 de junio del 2022
 Descripción: en esta parte presentoré los datos que el usuario seleccionó 
  */
 package view;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pojo.Destino;
 import pojo.Transporte;
 
-/**
- *
- * @author gonzalo
- */
 public class Solicitar extends javax.swing.JFrame {
 
     /**
@@ -42,19 +39,23 @@ public class Solicitar extends javax.swing.JFrame {
     }
 
     /**
-     * metodo de solicitar transporte
+     * método de solicitar transporte
      */
     public Solicitar(Transporte transporte) {
         initComponents();
-
         modeloTransporte = (DefaultTableModel) jTableTransport.getModel();
         mostrarSoliciudTransporte(transporte);
         
     }
-
+    /**
+    *método mustra la solicitud de destino que recibe los parámetros 
+     */
     public void mostrarSolicitudDestino(Destino destino) {
         modeloDestino.setRowCount(0);
-
+        /**
+         * se declara el objeto fila para luego obtener los atributos de la
+         * clase Destino
+         */
         Object[] fila = new Object[5];
         fila[0] = destino.getIdlugar();
         fila[1] = destino.getNombre();
@@ -64,7 +65,11 @@ public class Solicitar extends javax.swing.JFrame {
         modeloDestino.addRow(fila);
 
     }
-    
+    /**
+     * 
+     * transporte pasa los parámetros de la clase Transporte
+     * destino pasa los parámetros de la clase Destino
+     */
     public Solicitar(Transporte transporte, Destino destino) {
         this.transporte=transporte;
         this.destino=destino;
@@ -79,12 +84,15 @@ public class Solicitar extends javax.swing.JFrame {
     }
 
     /**
-     * @param transporte Creamos el método que obtiene los datos del atributo
+     *transporte Creamos el método que obtiene los datos del atributo
      * Transporte
      */
     public void mostrarSoliciudTransporte(Transporte transporte) {
         modeloTransporte.setRowCount(0);
-
+        /**
+         * declara el objeto de tipo fila y además  con el objeto obtiene los
+         * atributos de la clase Transporte
+         */
         Object[] fila = new Object[5];
         fila[0] = transporte.getIdTranspor();
         fila[1] = transporte.getNombreTransport();
@@ -93,7 +101,10 @@ public class Solicitar extends javax.swing.JFrame {
         modeloTransporte.addRow(fila);
 
     }
-    
+    /**
+     * 
+     *se declara el método mostrarSolici
+     */
      public void mostrarSoliciudDestino(Destino destino){
          modeloDestino.setRowCount(0);
          
@@ -153,8 +164,8 @@ public class Solicitar extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Datos solicitados");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 300, -1));
+        jLabel1.setText("Datos obtenidos ");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 300, -1));
 
         jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -189,7 +200,7 @@ public class Solicitar extends javax.swing.JFrame {
         jLabel3.setText("TRANSPORTE");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, -1, -1));
 
-        jButtonGuargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png.png"))); // NOI18N
+        jButtonGuargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/guardar.png"))); // NOI18N
         jButtonGuargar.setToolTipText("Guardar");
         jButtonGuargar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -227,8 +238,8 @@ public class Solicitar extends javax.swing.JFrame {
     private void jButtonGuargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuargarActionPerformed
         new Reservacion(destino,transporte).setVisible(true);
         // guarda los datos
+        JOptionPane.showMessageDialog(null, "Datos guardado con exito");
         this.hide();
-
     }//GEN-LAST:event_jButtonGuargarActionPerformed
 
     private void jButtonGuargarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGuargarMouseEntered

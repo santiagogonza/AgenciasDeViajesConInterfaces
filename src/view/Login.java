@@ -1,7 +1,7 @@
 /*
 Autor: Gonzalo Santiago García
 Fecha de creación: 1 de junio del 2022
-Fecha de actualización: 21 de junio del 2022 
+Fecha de actualización: 22 de junio del 2022 
 Descripción:En está ventana Login muestra la ventana principal donde inicia el 
         programa de ejecución del programa
  */
@@ -77,20 +77,20 @@ public class Login extends javax.swing.JFrame implements ActionListener {
         jLabel1Usuario.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel1Usuario.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1Usuario.setText("Usuario:");
-        jPanelLogin.add(jLabel1Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
+        jPanelLogin.add(jLabel1Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
 
         jLabel2Paword.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel2Paword.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2Paword.setText("Contraseña:");
-        jPanelLogin.add(jLabel2Paword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
+        jPanelLogin.add(jLabel2Paword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
-        usuario.setText("admi");
+        usuario.setText("admin");
         usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usuarioActionPerformed(evt);
             }
         });
-        jPanelLogin.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 170, -1));
+        jPanelLogin.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 170, 30));
 
         pasword.setText("123");
         pasword.addActionListener(new java.awt.event.ActionListener() {
@@ -98,9 +98,14 @@ public class Login extends javax.swing.JFrame implements ActionListener {
                 paswordActionPerformed(evt);
             }
         });
-        jPanelLogin.add(pasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 170, -1));
+        pasword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                paswordKeyPressed(evt);
+            }
+        });
+        jPanelLogin.add(pasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 170, 30));
 
-        jButtonIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/ingresar.png"))); // NOI18N
+        jButtonIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ingresar.png"))); // NOI18N
         jButtonIngresar.setToolTipText("Ingresar");
         jButtonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -119,10 +124,10 @@ public class Login extends javax.swing.JFrame implements ActionListener {
         jPanelLogin.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, -1, 40));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/usuario.png"))); // NOI18N
         jPanelLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
-        jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
+        jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/salir.png"))); // NOI18N
         jButtonSalir.setToolTipText("Salir");
         jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -165,7 +170,7 @@ public class Login extends javax.swing.JFrame implements ActionListener {
     }// </editor-fold>//GEN-END:initComponents
 
     private void paswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paswordActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_paswordActionPerformed
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
@@ -173,7 +178,7 @@ public class Login extends javax.swing.JFrame implements ActionListener {
         en esta parte declaramos un usuario y una contraseña, ya que através de
          podemos acceder al programa
          */
-        String usuario = "admi";
+        String usuario = "admin";
         String password = "123";
         Principal prin = new Principal();
         if (this.usuario.getText().equals(usuario)) {
@@ -204,6 +209,10 @@ public class Login extends javax.swing.JFrame implements ActionListener {
      
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
+    /**
+     * 
+     * @param evt hace un hover a los botones para que tenga una buena presentación
+     */
     private void jButtonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseClicked
 
     }//GEN-LAST:event_jButtonSalirMouseClicked
@@ -228,6 +237,13 @@ public class Login extends javax.swing.JFrame implements ActionListener {
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
 
     }//GEN-LAST:event_usuarioActionPerformed
+
+    private void paswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_paswordKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==evt.VK_ENTER){
+            jButtonIngresar.requestFocus();
+        }
+    }//GEN-LAST:event_paswordKeyPressed
 
     /**
      * @param args the command line arguments

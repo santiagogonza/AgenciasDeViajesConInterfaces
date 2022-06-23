@@ -1,7 +1,7 @@
 /*
  @author: Gonzalo santiago Garcia
 Fecha de creación: 1 junio del 2022
-Fecha de actualización:9 de junio del 2022 
+Fecha de actualización:22 de junio del 2022 
 Descripción: En esta parte del programa contenera el pojo Destino
  que es importante dentro del proyecto. por lo tanto, en está clase se declarán
 todos los atributos de la clase Destino.

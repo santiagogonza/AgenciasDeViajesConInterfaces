@@ -1,7 +1,7 @@
 /*
 @uthor: Gonzalo Santiago Garcia 
 Fecha de Creación: 1 de junio del 2022
-Fecha de actualización: 21 de junio del 2022
+Fecha de actualización: 22 de junio del 2022
 Descripción: en está parte creo el jFrame de transporte en la cual desarrolle
  los métodos que creí que se acuparán para la ejecución del programa
 
@@ -23,7 +23,7 @@ public class TransporteView extends javax.swing.JFrame {
  */
     private DefaultTableModel model;
     private List<Transporte> listaTransporte;
-    private TransporteContoller TrasnporteC;
+    private TransporteContoller TrasnporteControler;
     private Destino solic;
     private int xMouse;
     private int yMouse;
@@ -32,22 +32,22 @@ public class TransporteView extends javax.swing.JFrame {
     private int id;
 
     /**
-     * inicializa el método transporte 
+     * Inicializa el método transporte 
      */
     public TransporteView() {
         initComponents();
         setLocationRelativeTo(null);
         listaTransporte = new ArrayList<>();
         model = (DefaultTableModel) jTableTransporte.getModel();
-        TrasnporteC = new TransporteContoller();
-        //hace la llamada del método agregar transporte y mostrarTransporte
+        TrasnporteControler = new TransporteContoller();
+        //Hace la llamada del método agregar transporte y mostrarTransporte
         agregarTransportes();
         mostrarTransporte();
 
     }
 
     /**
-     * destino: pasa los parámetros de la clase Destino
+     * Destino: pasa los parámetros de la clase Destino
      * caseVentana: pasa los parámetros de la clase principal
      */
     public TransporteView(Destino destino, int caseVentana) {
@@ -56,8 +56,8 @@ public class TransporteView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         listaTransporte = new ArrayList<>();
         model = (DefaultTableModel) jTableTransporte.getModel();
-        TrasnporteC = new TransporteContoller();
-        //hace la llamada del método agregarTransporte y muestra los datos del
+        TrasnporteControler = new TransporteContoller();
+        //Hace la llamada del método agregarTransporte y muestra los datos del
         // transporte
         agregarTransportes();
         mostrarTransporte();
@@ -76,19 +76,21 @@ public class TransporteView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         listaTransporte = new ArrayList<>();
         model = (DefaultTableModel) jTableTransporte.getModel();
-        //intancia la el método transportec
-        TrasnporteC = new TransporteContoller();
+        //Instancia la el método transportec
+        TrasnporteControler = new TransporteContoller();
         agregarTransportes();
         mostrarTransporte();
 
     }
-
+    /**
+     * se declara el constructor vacío
+     */
     public void Transporte() {
 
     }
 
     /*
-    función de mostrarTransporte obtiene los datos de la clase transporte y los 
+    Función de mostrarTransporte obtiene los datos de la clase transporte y los 
     agrega en la tabla
     */
     public void mostrarTransporte() {
@@ -104,55 +106,67 @@ public class TransporteView extends javax.swing.JFrame {
     }
 
    /**
-    * función de agregarTransporte envia los datos de que son necesario de la
+    * Función de agregarTransporte envia los datos de que son necesario de la
     * clase transporte con sus respectivos tipos datos
     */
         public void agregarTransportes() {
-        Transporte trans = new Transporte();
-        trans.setIdTranspor(1);
-        trans.setNombreTransport("Motocicletas");
-        trans.setNumAsiento(2);
-        trans.setPrecio(30);
-        listaTransporte.add(trans);
+        Transporte transporte1 = new Transporte();
+        transporte1.setIdTranspor(1);
+        transporte1.setNombreTransport("Motocicletas");
+        transporte1.setNumAsiento(2);
+        transporte1.setPrecio(30);
+        listaTransporte.add(transporte1);
 
-        Transporte trans1 = new Transporte();
-        trans1.setIdTranspor(2);
-        trans1.setNombreTransport("Bicicletas");
-        trans1.setNumAsiento(1);
-        trans1.setPrecio(15);
-        listaTransporte.add(trans1);
+        Transporte transporte2 = new Transporte();
+        transporte2.setIdTranspor(2);
+        transporte2.setNombreTransport("Bicicletas");
+        transporte2.setNumAsiento(1);
+        transporte2.setPrecio(15);
+        listaTransporte.add(transporte2);
 
-        Transporte trans2 = new Transporte();
-        trans2.setIdTranspor(3);
-        trans2.setNombreTransport("Subburban");
-        trans2.setNumAsiento(7);
-        trans2.setPrecio(45);
-        listaTransporte.add(trans2);
+        Transporte transporte3 = new Transporte();
+        transporte3.setIdTranspor(3);
+        transporte3.setNombreTransport("Subburban");
+        transporte3.setNumAsiento(7);
+        transporte3.setPrecio(45);
+        listaTransporte.add(transporte3);
 
-        Transporte trans3 = new Transporte();
-        trans3.setIdTranspor(4);
-        trans3.setNombreTransport("Taxi");
-        trans3.setNumAsiento(5);
-        trans3.setPrecio(35);
-        listaTransporte.add(trans3);
+        Transporte transporte4 = new Transporte();
+        transporte4.setIdTranspor(4);
+        transporte4.setNombreTransport("Taxi");
+        transporte4.setNumAsiento(5);
+        transporte4.setPrecio(35);
+        listaTransporte.add(transporte4);
 
-        Transporte trans4 = new Transporte();
-        trans4.setIdTranspor(5);
-        trans4.setNombreTransport("Mototaxi");
-        trans4.setNumAsiento(3);
-        trans4.setPrecio(25);
-        listaTransporte.add(trans4);
+        Transporte transporte5 = new Transporte();
+        transporte5.setIdTranspor(5);
+        transporte5.setNombreTransport("Mototaxi");
+        transporte5.setNumAsiento(3);
+        transporte5.setPrecio(25);
+        listaTransporte.add(transporte5);
     }
 
         /**
-         * método limpiarTransporte limpia los jtexfield de los cuadros de texto
+         * Método limpiarTransporte limpia los jtexfield de los cuadros de texto
          */
     public void limpiarTransporte() {
-        jTextFielNom.setText("");
-        jTextFielAcien.setText("");
+        jTextFielNombre.setText("");
+        jTextFielAsiento.setText("");
         jTextFielPrecio.setText("");
     }
-
+    
+    /**
+     * creamos una función confirmarSalida hace una comparación si es que el
+     * usuario desea cerrar el programa si no le manda una advertencia
+     */
+    public void confirmarSalida(){
+        int valor= JOptionPane.showConfirmDialog(this, "¿Está seguro de cerrar "
+                + "El programa?", "ADVERTENCIA",JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE);
+        if(valor==JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -170,11 +184,11 @@ public class TransporteView extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextFielNom = new javax.swing.JTextField();
+        jTextFielNombre = new javax.swing.JTextField();
         jTextFielPrecio = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableTransporte = new javax.swing.JTable();
-        jTextFielAcien = new javax.swing.JTextField();
+        jTextFielAsiento = new javax.swing.JTextField();
         fondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -188,7 +202,6 @@ public class TransporteView extends javax.swing.JFrame {
         jMenuBar2.add(jMenu3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         setResizable(false);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -204,7 +217,7 @@ public class TransporteView extends javax.swing.JFrame {
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
+        jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/salir.png"))); // NOI18N
         jButtonSalir.setToolTipText("Salir");
         jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -220,9 +233,9 @@ public class TransporteView extends javax.swing.JFrame {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 450, 80, 40));
+        jPanel1.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 450, 80, 40));
 
-        jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/agre.png"))); // NOI18N
+        jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar.png"))); // NOI18N
         jButtonAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButtonAgregarMouseEntered(evt);
@@ -238,7 +251,7 @@ public class TransporteView extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 30, 80, -1));
 
-        jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/actualizar.png"))); // NOI18N
+        jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/actualizar.png"))); // NOI18N
         jButtonActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButtonActualizarMouseEntered(evt);
@@ -254,7 +267,7 @@ public class TransporteView extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 80, 80, -1));
 
-        jButtonElimiminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/basura.png"))); // NOI18N
+        jButtonElimiminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/eliminar.png"))); // NOI18N
         jButtonElimiminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonElimiminarMouseClicked(evt);
@@ -273,7 +286,7 @@ public class TransporteView extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonElimiminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 130, 80, 40));
 
-        jButtonSolicitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/solicitar.png"))); // NOI18N
+        jButtonSolicitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/solicitar.png"))); // NOI18N
         jButtonSolicitar.setToolTipText("Solicitar");
         jButtonSolicitar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -291,27 +304,27 @@ public class TransporteView extends javax.swing.JFrame {
         jPanel1.add(jButtonSolicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 180, 80, -1));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
-        jLabel1.setText("Número de Acientos:");
+        jLabel1.setText("Número de Asientos:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         jLabel3.setText("Nombre del Transporte:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         jLabel2.setText("Precio:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel4.setText("Seleccione el Transporte");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, -1, -1));
 
-        jTextFielNom.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFielNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFielNomKeyTyped(evt);
+                jTextFielNombreKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFielNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 190, 30));
+        jPanel1.add(jTextFielNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 190, 30));
 
         jTextFielPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -323,7 +336,7 @@ public class TransporteView extends javax.swing.JFrame {
                 jTextFielPrecioKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFielPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 190, -1));
+        jPanel1.add(jTextFielPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 190, 30));
 
         jTableTransporte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -335,7 +348,7 @@ public class TransporteView extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Id", "Nombre", "Numero de acientos", "Precio"
+                "Id", "Nombre", "Número de asientos", "Precio"
             }
         ) {
             Class[] types = new Class [] {
@@ -357,16 +370,18 @@ public class TransporteView extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 890, 130));
 
-        jTextFielAcien.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFielAsiento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFielAcienKeyTyped(evt);
+                jTextFielAsientoKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextFielAcien, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 190, 30));
+        jPanel1.add(jTextFielAsiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 190, 30));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fon.jpg"))); // NOI18N
-        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-790, 10, 1740, 500));
+        fondo.setDisabledIcon(null);
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-810, 10, 1760, 500));
 
+        jMenu1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/transporte.png"))); // NOI18N
         jMenu1.setText("Transporte");
         jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -412,73 +427,91 @@ public class TransporteView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 // se declaran los botones que contiene el ménu 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        //hace instancia a la ventana Principal 
+        //Hace instancia a la ventana Principal 
         new Principal().setVisible(true);
-        // método que oculta la venta  principal
+        // Método que oculta la venta  principal
         this.hide();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-      //hace la instancia a la ventana Reservación y lo oculta
+      //Hace la instancia a la ventana Reservación y lo oculta
         new Reservacion().setVisible(true);
         this.hide();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        this.hide();
+        //this.hide();
+        confirmarSalida();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
-        /**
-         * hace la comparación de los datos obtenidos si es que están iguales 
+        /**Boton agregar
+         * Hace la comparación de los datos obtenidos si es que están iguales 
          * si no manda un mensaje de rellenar los cuadros de textos
          */
-        if (jTextFielAcien.getText().equals("") 
-                || jTextFielNom.getText().equals("") 
+        if (jTextFielAsiento.getText().equals("") 
+                || jTextFielNombre.getText().equals("") 
                 || jTextFielPrecio.getText().equals("")) {
             JOptionPane.showMessageDialog(null,
                     "Debe estar rellenado todos los cuadros de texto");
         } else {
             /**
-             * agregar Transporte realiza la intancia a la clase Transporte y
+             * Agregar Transporte realiza la intancia a la clase Transporte y
              * envia
             */
-            Transporte trasn = new Transporte();
-            trasn.setIdTranspor(listaTransporte.size() + 1);
-            trasn.setNombreTransport(jTextFielNom.getText());
-
-            trasn.setNumAsiento(Integer.parseInt(jTextFielAcien.getText()));
-            jTextFielNom.setText("");
-            jTextFielAcien.setText("");
-            jTextFielPrecio.setText("");
-            TrasnporteC.crearTransporte(listaTransporte, trasn);
-            TrasnporteC.mostrarTransporte(listaTransporte, model);
+            Transporte trasnporte = new Transporte();
+            trasnporte.setIdTranspor(listaTransporte.size() + 1);
+            trasnporte.setNombreTransport(jTextFielNombre.getText());
+            trasnporte.setNumAsiento(Integer.parseInt(jTextFielAsiento.getText()));
+            //Hace la llamada al método limpiarTransporte
+            limpiarTransporte();
+           /**
+            * Hace la llamada al método crearTransporte con sus parámetros
+            * y el método mostrarTransporte con su parámetro 
+            */
+            TrasnporteControler.crearTransporte(listaTransporte, trasnporte);
+            TrasnporteControler.mostrarTransporte(listaTransporte, model);
         }
 
 
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
     private void jTableTransporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableTransporteMouseClicked
+       /**
+        * Envia los datos a la tabla transporte y los comparamos, de ahí con los
+        * datos correctos se puede seleccionar un dato de la tabla y mostrarlo 
+        * en la tabla jtexfiel 
+        */
         id=Integer.parseInt(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 0).toString());
-        jTextFielNom.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 1).toString());
-        jTextFielAcien.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 2).toString());
+        jTextFielNombre.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 1).toString());
+        jTextFielAsiento.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 2).toString());
         jTextFielPrecio.setText(jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 3).toString());
         //editar
-        jTextFielAcien.setEditable(true);
+        jTextFielAsiento.setEditable(true);
 
     }//GEN-LAST:event_jTableTransporteMouseClicked
 
     private void jButtonElimiminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonElimiminarActionPerformed
-        // botton eliminar
-        if (jTextFielNom.getText().equals("")
-                || jTextFielAcien.getText().equals("")
+
+        /**
+         *Botton eliminar: compara los datos jtexfiel obtenidos si seleccionan
+         * un compo vacio les manda un mensaje que no está seleccionando un 
+         * dato de la tabla
+         */
+        if (jTextFielNombre.getText().equals("")
+                || jTextFielAsiento.getText().equals("")
                 || jTextFielPrecio.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Seleccione un campo de la tabla",
                     "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
         } else {
-            String nombre = jTableTransporte.getValueAt(jTableTransporte.getSelectedRow(), 1).toString();
-            TrasnporteC.eliminarTransorte(listaTransporte, nombre);
-            TrasnporteC.mostrarTransporte(listaTransporte, model);
+            /**
+             * Se declara un dato de tipo String y asignandole jTableTransporte
+             * por ultimo llamamos al método elimar y mostrar transporte
+             */
+            String nombre = jTableTransporte.getValueAt(
+                   jTableTransporte.getSelectedRow(), 1).toString();
+                   TrasnporteControler.eliminarTransorte(listaTransporte, nombre);
+                   TrasnporteControler.mostrarTransporte(listaTransporte, model);
         }
         limpiarTransporte();
     }//GEN-LAST:event_jButtonElimiminarActionPerformed
@@ -488,28 +521,37 @@ public class TransporteView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonElimiminarMouseClicked
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
-
-        //boton actualizar
-        if (jTextFielNom.getText().equals("")
-                || jTextFielAcien.getText().equals("")
+        /*
+        Boton actualizar: Hace la comparación los datos si es que está 
+        seleccionado un campo vacio le manda un mensaje de error si no realiza el 
+        proceso de la ejecución del programa
+        */
+       
+        if (jTextFielNombre.getText().equals("")
+                || jTextFielAsiento.getText().equals("")
                 || jTextFielPrecio.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Rellena todos los campos");
         } else {
-
+            /**
+             Hace la instancia Transporte creando un nuevo objeto que enviará
+             * los datos a jTexfiel
+             */
             Transporte transporteActualizar = new Transporte();
             transporteActualizar.setIdTranspor(id);
-            transporteActualizar.setNombreTransport(jTextFielNom.getText());
-            transporteActualizar.setNumAsiento(Integer.parseInt(jTextFielAcien.getText()));
-            transporteActualizar.setPrecio(Integer.parseInt(jTextFielPrecio.getText()));
-            TrasnporteC.actualizarTransporte(listaTransporte, transporteActualizar);
-            TrasnporteC.mostrarTransporte(listaTransporte, model);
-
-            jTextFielNom.setText("");
-            jTextFielAcien.setText("");
-            jTextFielPrecio.setText("");
-
-            jTextFielNom.setEditable(true);
-            jTextFielAcien.setEditable(true);
+            transporteActualizar.setNombreTransport(jTextFielNombre.getText());
+            transporteActualizar.setNumAsiento
+            (Integer.parseInt(jTextFielAsiento.getText()));
+            transporteActualizar.setPrecio(Integer.parseInt
+            (jTextFielPrecio.getText()));
+            TrasnporteControler.actualizarTransporte
+            (listaTransporte, transporteActualizar);
+            TrasnporteControler.mostrarTransporte(listaTransporte, model);
+            //Hace la llamada al método limpiar que limpia los datos de jTexfiel
+            limpiarTransporte();
+            //se obtiene los datos para al final lo configura para actualizar 
+            //los datos
+            jTextFielNombre.setEditable(true);
+            jTextFielAsiento.setEditable(true);
             jTextFielPrecio.setEditable(true);
             //mostrarTransporte();
         }
@@ -517,20 +559,23 @@ public class TransporteView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void jButtonSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSolicitarActionPerformed
-
+        /**
+         * se utiliza un case para la opción de la ventana si de sea diriguirse
+         *  a la ventana destino o la de transporte
+         */
         switch (caseVentana) {
             case 1:
-                if (jTextFielNom.getText().equals("")
-                || jTextFielAcien.getText().equals("")
+                if (jTextFielNombre.getText().equals("")
+                || jTextFielAsiento.getText().equals("")
                 || jTextFielPrecio.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Rellena todos los campos");
         } else {
             //botton solicitar
 
             Transporte solicitarTransporte = new Transporte();
-            solicitarTransporte.setNombreTransport(jTextFielNom.getText());
+            solicitarTransporte.setNombreTransport(jTextFielNombre.getText());
             solicitarTransporte.setNumAsiento(Integer.parseInt(
-                    jTextFielAcien.getText()));
+                    jTextFielAsiento.getText()));
             solicitarTransporte.setPrecio(Integer.parseInt(
                     jTextFielPrecio.getText()));
 
@@ -539,20 +584,23 @@ public class TransporteView extends javax.swing.JFrame {
                 break;
             case 2:
                 
-                if (jTextFielNom.getText().equals("")
-                || jTextFielAcien.getText().equals("")
+                if (jTextFielNombre.getText().equals("")
+                || jTextFielAsiento.getText().equals("")
                 || jTextFielPrecio.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Rellena todos los campos");
         } else {
             //botton solicitar
-
+            /**
+             * se declarán el dato silicitarTransporte
+             */
             Transporte solicitarTransporte = new Transporte();
-            solicitarTransporte.setNombreTransport(jTextFielNom.getText());
+            solicitarTransporte.setNombreTransport(jTextFielNombre.getText());
             solicitarTransporte.setNumAsiento(Integer.parseInt(
-                    jTextFielAcien.getText()));
+                    jTextFielAsiento.getText()));
             solicitarTransporte.setPrecio(Integer.parseInt(
                     jTextFielPrecio.getText()));
-
+            //instanciamos la ventana principal y mandando los parámetros de 
+            //solicitar transporte
             new Principal(2,solicitarTransporte).setVisible(true);
             }
                 break;
@@ -603,7 +651,7 @@ public class TransporteView extends javax.swing.JFrame {
         jButtonSolicitar.setBackground(Color.white);
     }//GEN-LAST:event_jButtonSolicitarMouseExited
 
-    private void jTextFielNomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielNomKeyTyped
+    private void jTextFielNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielNombreKeyTyped
         /**
          * método que válida nombre de transporte para que solo ingrese letras
          */
@@ -614,9 +662,9 @@ public class TransporteView extends javax.swing.JFrame {
                     "solo se permite letras en este campo",
                     "ADVERTEMCIA", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_jTextFielNomKeyTyped
+    }//GEN-LAST:event_jTextFielNombreKeyTyped
 
-    private void jTextFielAcienKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielAcienKeyTyped
+    private void jTextFielAsientoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielAsientoKeyTyped
         /**
          * método que válida número de acientos para que solo se ingrese digitos
          */
@@ -627,14 +675,17 @@ public class TransporteView extends javax.swing.JFrame {
                     "solo se permite digitos en este campo",
                     "ADVERTEMCIA", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_jTextFielAcienKeyTyped
+    }//GEN-LAST:event_jTextFielAsientoKeyTyped
 
     private void jTextFielPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielPrecioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFielPrecioActionPerformed
 
     private void jTextFielPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielPrecioKeyTyped
-
+        /**
+         * válida el cuadro de precio para que solo se ingrese dígitos en el 
+         * campo
+         */
         char letra = evt.getKeyChar();
         if (Character.isLetter(letra)) {
             evt.consume();
@@ -653,7 +704,7 @@ public class TransporteView extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseDragged
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
-        // TODO add your handling code here:
+
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_formMousePressed
@@ -689,8 +740,8 @@ public class TransporteView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableTransporte;
-    private javax.swing.JTextField jTextFielAcien;
-    private javax.swing.JTextField jTextFielNom;
+    private javax.swing.JTextField jTextFielAsiento;
+    private javax.swing.JTextField jTextFielNombre;
     private javax.swing.JTextField jTextFielPrecio;
     // End of variables declaration//GEN-END:variables
 }

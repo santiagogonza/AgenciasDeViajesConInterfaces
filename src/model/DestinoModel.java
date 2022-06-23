@@ -1,3 +1,12 @@
+/**
+ * Autor:Gonzalo Santiago García 
+ * Fecha de creación: 1 de junio del 2022
+ * Fecha de actualización: 22 de junio del 2022
+ * Descripción: desntro de la clase Destino model, creamos algunas de las
+ * funciones que necesitaremos para el manejo de nuestro List y que a través 
+ * dentro de la clase se seguira implenentando los detalles del programa
+ */
+
 package model;
 
 import pojo.Destino;
@@ -27,7 +36,12 @@ public class DestinoModel {
         }
         return null;
     }
-
+    /**
+     * lista: nombra la lista de array lis 
+     * nombre: tipo de parámetro que recive
+     *en este método eliminar se encarga de eliminar un destino al obtener ese
+     * método lo realiza 
+     */
     public void eliminarDestino(List<Destino> lista, String nombre) {
         for (int i = 0; i < lista.size(); i++) {
             if (lista.get(i).getNombre().compareTo(nombre) == 0) {
@@ -37,6 +51,10 @@ public class DestinoModel {
         }
     }
 
+    /**
+     * en este método creamos el método actialiar que lo guardamos en un  array 
+     * List y que recive como parámetro un tipo de dato destino
+     */
     public void actualizarDestino(List<Destino> lista, Destino destino) {
         for (int i = 0; i < lista.size(); i++) {
             if (lista.get(i).getCodigoPost() == (destino.getCodigoPost())) {

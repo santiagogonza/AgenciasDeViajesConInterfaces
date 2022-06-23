@@ -66,7 +66,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="90" y="240" width="-1" height="-1"/>
+              <AbsoluteConstraints x="90" y="250" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -82,20 +82,20 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="50" y="290" width="-1" height="-1"/>
+              <AbsoluteConstraints x="50" y="280" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="usuario">
           <Properties>
-            <Property name="text" type="java.lang.String" value="admi"/>
+            <Property name="text" type="java.lang.String" value="admin"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="usuarioActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="190" y="240" width="170" height="-1"/>
+              <AbsoluteConstraints x="190" y="240" width="170" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -105,17 +105,18 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paswordActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="paswordKeyPressed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="190" y="290" width="170" height="-1"/>
+              <AbsoluteConstraints x="190" y="280" width="170" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonIngresar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/ingresar.png"/>
+              <Image iconType="3" name="/icons/ingresar.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Ingresar"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -139,7 +140,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/user.png"/>
+              <Image iconType="3" name="/usuario.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -151,7 +152,7 @@
         <Component class="javax.swing.JButton" name="jButtonSalir">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/exit.png"/>
+              <Image iconType="3" name="/icons/salir.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Salir"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">

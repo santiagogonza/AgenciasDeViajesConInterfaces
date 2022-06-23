@@ -1,7 +1,7 @@
 /*
  * @autor: Gonzalo Santiago Garcia
  * Fecha de creación: 01 de mayo del 2022
- * fecha de actualización: 9 de mayo 2022
+ * fecha de actualización: 22 de junio 2022
  * Descripción: En la clase Transporte se declaran los atributos de esa clase
    y además se declara sus métodos get y set de cada atributo.
  */
@@ -31,6 +31,10 @@ public class Transporte {
         this.precio = precio;
     }
 
+    /**
+     * 
+     * Declaración del método get y set de cada atributo
+     */
     public long getIdTranspor() {
         return idTranspor;
     }

@@ -26,7 +26,7 @@
               </Border>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/menu1.png"/>
+              <Image iconType="3" name="/icons/men&#xfa;.png"/>
             </Property>
             <Property name="mnemonic" type="int" value="102"/>
             <Property name="text" type="java.lang.String" value="M&#xe9;nu"/>
@@ -101,7 +101,6 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="undecorated" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -222,7 +221,7 @@
         <Component class="javax.swing.JButton" name="jButtonSalir">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/exit.png"/>
+              <Image iconType="3" name="/icons/salir.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Salir"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -252,11 +251,11 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="230" y="20" width="500" height="-1"/>
+              <AbsoluteConstraints x="210" y="70" width="500" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFielNom">
+        <Component class="javax.swing.JTextField" name="jTextFielNombre">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="ff" type="rgb"/>
@@ -266,12 +265,12 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFielNomActionPerformed"/>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFielNomKeyTyped"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFielNombreActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFielNombreKeyTyped"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="250" y="150" width="200" height="-1"/>
+              <AbsoluteConstraints x="250" y="160" width="200" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -358,7 +357,7 @@
         <Component class="javax.swing.JButton" name="jButtonAgregar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/agre.png"/>
+              <Image iconType="3" name="/icons/agregar.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Agregar"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -379,7 +378,7 @@
         <Component class="javax.swing.JButton" name="jButtonActualizar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/actualizar.png"/>
+              <Image iconType="3" name="/icons/actualizar.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Actualizar"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -397,42 +396,42 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFielDir">
+        <Component class="javax.swing.JTextField" name="jTextFielDirecci&#xf3;n">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFielDirActionPerformed"/>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFielDirKeyTyped"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFielDirecci&#xf3;nActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFielDirecci&#xf3;nKeyTyped"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="600" y="150" width="210" height="-1"/>
+              <AbsoluteConstraints x="600" y="160" width="210" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFielCp">
+        <Component class="javax.swing.JTextField" name="jTextFielC&#xf3;dido_postal">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFielCpActionPerformed"/>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFielCpKeyTyped"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFielC&#xf3;dido_postalActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFielC&#xf3;dido_postalKeyTyped"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="250" y="190" width="200" height="-1"/>
+              <AbsoluteConstraints x="250" y="200" width="200" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonEliminar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/basura.png"/>
+              <Image iconType="3" name="/icons/eliminar.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Eliminar"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -451,26 +450,26 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFielTel">
+        <Component class="javax.swing.JTextField" name="jTextFielTel&#xe9;fono">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFielTelActionPerformed"/>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFielTelKeyTyped"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFielTel&#xe9;fonoActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFielTel&#xe9;fonoKeyTyped"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="600" y="190" width="210" height="-1"/>
+              <AbsoluteConstraints x="600" y="200" width="210" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSolicitar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/solicitar.png"/>
+              <Image iconType="3" name="/icons/solicitar.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Solicitar"/>
           </Properties>
@@ -491,7 +490,7 @@
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/nature-g2f407e47e_1920.jpg"/>
+              <Image iconType="3" name="/naturaleza.jpg"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>

@@ -1,7 +1,7 @@
 /*
 autor: Gonzalo Santiago Garcia
 fecha de creación: 1 de junio del 2022
-fecha de actualización: 9 de junio del 2022 
+fecha de actualización: 22 de junio del 2022 
 descripción: contiene las funciones como crear, obtener, eliminar, actualizar y
  mostrar
  */
@@ -13,11 +13,17 @@ import pojo.Transporte;
 
 public class TransporteModel {
 
+    /**
+     *creamos la función crear transporte y que creamos una lista de transporte 
+     * y le pasamos los parámetros de la clase Transporte
+     */
     public void crearTransporte(List<Transporte> lista, Transporte transporte) {
         lista.add(transporte);
     }
 
-    // creamos el metodo obtenerTransporte
+    /**
+     * creamos el metodo obtenerTransporte
+     * */
     public Transporte obtenerTransporte(List<Transporte> lista, int codigo) {
         for (Transporte transporte : lista) {
             /* hace la comparación de de ide trasnporte si es igual al id
@@ -31,8 +37,10 @@ public class TransporteModel {
         }
         return null;
     }
-    //función eliminar
-
+    /*
+    función eliminar hace la comparación a través del nombre si es que es
+    igual elimina ese dato
+    */
     public void eliminarTransporte(List<Transporte> lista, String nom) {
         for (int i = 0; i < lista.size(); i++) {
             if (lista.get(i).getNombreTransport().compareTo(nom) == 0) {
@@ -45,14 +53,16 @@ public class TransporteModel {
     //función actualizar
     public void actualizarTransporte(List<Transporte> lista, Transporte transport) {
         for (int i = 0; i < lista.size(); i++) {
-            if (lista.get(i).getIdTranspor()==(transport.getIdTranspor())) {
+            if (lista.get(i).getIdTranspor() == (transport.getIdTranspor())) {
                 lista.set(i, transport);
                 break;
             }
         }
     }
 
-    //función mostrar
+    /**
+     *esta función si obtiene los datos y los muestra en la tabla
+     */
     public void mostrarTransporte(List<Transporte> lista, DefaultTableModel modelo) {
         modelo.setRowCount(0);
         for (int i = 0; i < lista.size(); i++) {

@@ -1,18 +1,21 @@
+/**
+ * Autor: Gonzalo Santiago García
+ * Fecha de creación: 20 de junio del 2022
+ * Fecha de actualización: 22 de junio del 2022
+ * Descripción: En esta ventana presenta los datos que contendra los datos 
+ * solicitados y que se han guardado
+ */
 package view;
 
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import java.awt.print.PrinterException;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pojo.Destino;
 import pojo.Transporte;
 
 
 public class Reservacion extends javax.swing.JFrame {
-
+    //creación de los datos que se ocuparan dentro del programa
      private DefaultTableModel modelDestino;
      private DefaultTableModel modelTransporte;
      private Destino destino;
@@ -21,18 +24,29 @@ public class Reservacion extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
+    /**
+     * 
+     * @param destin: pasa los parámetros de la clase destino
+     * @param transport pasa los parámetros de la clase transporte
+     */
     public Reservacion(Destino destin, Transporte transport) {
         initComponents();
         this.destino=destin;
         this.transporte=transport;
+        //se declara la tabla y se obtiene los datos de la tabla
         
         modelDestino=(DefaultTableModel)jTable1.getModel();
         modelTransporte=(DefaultTableModel)jTable2.getModel();
-        
+        //hace la llamada de la función mostrarSilicitudDestino
         mostrarSolicitudDestino();
+        //hace la llamada de la función mostrarSolicitudTransporte
         mostrarSoliciudTransporte();
     }
     
+    /**
+     * Declaramos una función mostrarSolicitudDestino y le envia esos datos a la
+     * tablay ademas se crea un objeto que obtendrá atributos de la clase destino
+     */
        public void mostrarSolicitudDestino() {
         modelDestino.setRowCount(0);
 
@@ -45,9 +59,13 @@ public class Reservacion extends javax.swing.JFrame {
         modelDestino.addRow(fila);
     }
     
+       /**
+        * Declara el métodoMostrarSolicitudTransporte y los añade a la tabla
+        */
           public void mostrarSoliciudTransporte() {
         modelTransporte.setRowCount(0);
-
+        //se crea un objeto de tipo fila que através de ello se puede obtener la 
+        //la posición 
         Object[] fila = new Object[5];
         fila[0] = transporte.getIdTranspor();
         fila[1] = transporte.getNombreTransport();
@@ -55,7 +73,15 @@ public class Reservacion extends javax.swing.JFrame {
         fila[3] = transporte.getPrecio();
         modelTransporte.addRow(fila);
     }
-
+          public void confirmarSalida(){
+        int valor= JOptionPane.showConfirmDialog(this, 
+                "¿Está seguro cancelar la impresión "
+                , "ADVERTENCIA",JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE);
+        if(valor==JOptionPane.YES_OPTION){
+           this.hide();
+        }
+          }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -86,7 +112,7 @@ public class Reservacion extends javax.swing.JFrame {
 
         jPanelReservacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
+        jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/salir.png"))); // NOI18N
         jButtonSalir.setToolTipText("Salir");
         jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -102,7 +128,7 @@ public class Reservacion extends javax.swing.JFrame {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        jPanelReservacion.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, 70, 40));
+        jPanelReservacion.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 390, 70, 40));
 
         jTextFielSolicitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +161,7 @@ public class Reservacion extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("Nombre fiscal\nAGENCIA DE VIAJES MIAHUATLAN\n DE PROFIRIO DIÁZ\nTel. 951 237 66 45");
+        jTextArea1.setText("Nombre fiscal\nAGENCIA DE VIAJES MIAHUATLÁN\nDE PORFIRIO DIÁZ\nTel. 951 237 66 45");
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanelReservacion.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 270, -1));
@@ -148,7 +174,7 @@ public class Reservacion extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Id", "Nombre", "Número de acientos", "Precio"
+                "Id", "Nombre", "Número de asientos", "Precio"
             }
         ) {
             Class[] types = new Class [] {
@@ -174,7 +200,7 @@ public class Reservacion extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Id", "Destino", "C.P.", "Dirección", "Teléfono"
+                "Id", "Destino", "Código Postal", "Dirección", "Teléfono"
             }
         ) {
             Class[] types = new Class [] {
@@ -189,13 +215,14 @@ public class Reservacion extends javax.swing.JFrame {
 
         jPanelReservacion.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 670, 50));
 
-        jButton1.setText("Imprimir factura.");
+        jButton1.setText("Imprimir ");
+        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanelReservacion.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, -1, -1));
+        jPanelReservacion.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 110, 40));
 
         desktopPane.add(jPanelReservacion);
         jPanelReservacion.setBounds(0, 0, 760, 450);
@@ -249,13 +276,19 @@ public class Reservacion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
-        // TODO add your handling code here:
+       /**
+        * instancia la ventana Transporte y lo oculta
+        */
         new TransporteView().setVisible(true);
+        this.hide();
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-        // TODO add your handling code here:
+      /**
+       * instancia la ventana Principal y lo oculta
+       */
         new Principal().setVisible(true);
+        this.hide();
     }//GEN-LAST:event_openMenuItemActionPerformed
 
     private void jTextFielSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielSolicitarActionPerformed
@@ -263,8 +296,8 @@ public class Reservacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFielSolicitarActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
+       //hace la llamada al método confirmarSalida
+        confirmarSalida();       
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -283,34 +316,9 @@ public class Reservacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+  // método pricipal
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Reservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Reservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Reservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Reservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+     
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Reservacion().setVisible(true);
@@ -341,20 +349,5 @@ public class Reservacion extends javax.swing.JFrame {
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
 
-    /*
-    @Override
-    
-    public int print(Graphics grphcs, PageFormat pf, int pageIndex) throws PrinterException {
-       if(pageIndex==0){
-           
-          Graphics2D graphics2d ;
-           graphics2d = (Graphics2D) graphics2d;
-           graphics2d.translate(pageIndex.getImageableX(), pageIndex.getImageableY());
-           return PAGE_EXISTS;
-       }else{
-           return NO_SUCH_PAGE;
-
-       }
-  }*/
 
 }

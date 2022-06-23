@@ -24,6 +24,11 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/transporte.png"/>
             </Property>
@@ -74,7 +79,6 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="undecorated" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -123,7 +127,7 @@
         <Component class="javax.swing.JButton" name="jButtonSalir">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/exit.png"/>
+              <Image iconType="3" name="/icons/salir.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Salir"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -137,14 +141,14 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="850" y="450" width="80" height="40"/>
+              <AbsoluteConstraints x="840" y="450" width="80" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAgregar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/agre.png"/>
+              <Image iconType="3" name="/icons/agregar.png"/>
             </Property>
           </Properties>
           <Events>
@@ -161,7 +165,7 @@
         <Component class="javax.swing.JButton" name="jButtonActualizar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/actualizar.png"/>
+              <Image iconType="3" name="/icons/actualizar.png"/>
             </Property>
           </Properties>
           <Events>
@@ -178,7 +182,7 @@
         <Component class="javax.swing.JButton" name="jButtonElimiminar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/basura.png"/>
+              <Image iconType="3" name="/icons/eliminar.png"/>
             </Property>
           </Properties>
           <Events>
@@ -196,7 +200,7 @@
         <Component class="javax.swing.JButton" name="jButtonSolicitar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/solicitar.png"/>
+              <Image iconType="3" name="/icons/solicitar.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Solicitar"/>
           </Properties>
@@ -216,7 +220,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="DejaVu Sans" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="N&#xfa;mero de Acientos:"/>
+            <Property name="text" type="java.lang.String" value="N&#xfa;mero de Asientos:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -233,7 +237,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="70" y="80" width="-1" height="-1"/>
+              <AbsoluteConstraints x="70" y="60" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -246,7 +250,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="300" y="160" width="-1" height="-1"/>
+              <AbsoluteConstraints x="290" y="180" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -263,13 +267,13 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFielNom">
+        <Component class="javax.swing.JTextField" name="jTextFielNombre">
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFielNomKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFielNombreKeyTyped"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="400" y="80" width="190" height="30"/>
+              <AbsoluteConstraints x="390" y="60" width="190" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -280,7 +284,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="400" y="160" width="190" height="-1"/>
+              <AbsoluteConstraints x="390" y="180" width="190" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -302,7 +306,7 @@
                   <Table columnCount="4" rowCount="6">
                     <Column editable="true" title="Id" type="java.lang.Integer"/>
                     <Column editable="true" title="Nombre" type="java.lang.String"/>
-                    <Column editable="true" title="Numero de acientos" type="java.lang.Integer"/>
+                    <Column editable="true" title="N&#xfa;mero de asientos" type="java.lang.Integer"/>
                     <Column editable="true" title="Precio" type="java.lang.Integer"/>
                   </Table>
                 </Property>
@@ -344,13 +348,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="jTextFielAcien">
+        <Component class="javax.swing.JTextField" name="jTextFielAsiento">
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFielAcienKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFielAsientoKeyTyped"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="400" y="120" width="190" height="30"/>
+              <AbsoluteConstraints x="390" y="120" width="190" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -359,10 +363,13 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/fon.jpg"/>
             </Property>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="0" name="null"/>
+            </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="-790" y="10" width="1740" height="500"/>
+              <AbsoluteConstraints x="-810" y="10" width="1760" height="500"/>
             </Constraint>
           </Constraints>
         </Component>

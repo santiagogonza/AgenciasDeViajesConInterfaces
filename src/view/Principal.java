@@ -1,7 +1,7 @@
 /*
 autor: Gonzalo Santiago Garcia
 fecha de creación: 1 de junio del 2022
-fecha de actualización: 21 de junio del 2022 
+fecha de actualización: 22 de junio del 2022 
 descripción: creo la ventana principal donde presento la lista de los 
  lugares que tengo de recomendocion de Miahuatlán 
  */
@@ -26,7 +26,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     private DefaultTableModel modelo;
     Login log = new Login();
     private List<Destino> listaDestino;
-    private DestinoController DestinoC;
+    private DestinoController DestinoControler;
     private Transporte transporte;
     private int xMuase;
     private int yMouse;
@@ -42,7 +42,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         modelo = (DefaultTableModel) jTable1.getModel();
         log.setVisible(false);
         listaDestino = new ArrayList<>();
-        DestinoC = new DestinoController();
+        DestinoControler = new DestinoController();
         agregarDatos();
         mostrarDestino();
 
@@ -60,7 +60,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         modelo = (DefaultTableModel) jTable1.getModel();
         log.setVisible(false);
         listaDestino = new ArrayList<>();
-        DestinoC = new DestinoController();
+        DestinoControler = new DestinoController();
         agregarDatos();
         mostrarDestino();
     }
@@ -85,10 +85,10 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
  * cuadros de jtexfield 
  */
     public void limpiarDestino() {
-        jTextFielNom.setText("");
-        jTextFielCp.setText("");
-        jTextFielDir.setText("");
-        jTextFielTel.setText("");
+        jTextFielNombre.setText("");
+        jTextFielCódido_postal.setText("");
+        jTextFielDirección.setText("");
+        jTextFielTeléfono.setText("");
 
     }
 
@@ -144,7 +144,16 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         destino6.setTelefono("951 488 3200");
         listaDestino.add(destino6);
     }
-
+    
+    public void confirmarSalida(){
+        int valor= JOptionPane.showConfirmDialog(this, "¿Está seguro de cerrar "
+                + "El programa?", "ADVERTENCIA",JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE);
+        if(valor==JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -156,7 +165,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jTable1 = new javax.swing.JTable();
         jButtonSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextFielNom = new javax.swing.JTextField();
+        jTextFielNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -164,10 +173,10 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jLabel6 = new javax.swing.JLabel();
         jButtonAgregar = new javax.swing.JButton();
         jButtonActualizar = new javax.swing.JButton();
-        jTextFielDir = new javax.swing.JTextField();
-        jTextFielCp = new javax.swing.JTextField();
+        jTextFielDirección = new javax.swing.JTextField();
+        jTextFielCódido_postal = new javax.swing.JTextField();
         jButtonEliminar = new javax.swing.JButton();
-        jTextFielTel = new javax.swing.JTextField();
+        jTextFielTeléfono = new javax.swing.JTextField();
         jButtonSolicitar = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
@@ -181,7 +190,6 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         setResizable(false);
 
         jPanelPrincipal.setEnabled(false);
@@ -233,7 +241,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
         jPanelPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 930, 140));
 
-        jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
+        jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/salir.png"))); // NOI18N
         jButtonSalir.setToolTipText("Salir");
         jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -254,21 +262,21 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jLabel1.setFont(new java.awt.Font("Lato Black", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Agencias de viajes Miahuatlán");
-        jPanelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 500, -1));
+        jPanelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 500, -1));
 
-        jTextFielNom.setBackground(new java.awt.Color(255, 255, 204));
-        jTextFielNom.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextFielNom.addActionListener(new java.awt.event.ActionListener() {
+        jTextFielNombre.setBackground(new java.awt.Color(255, 255, 204));
+        jTextFielNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFielNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielNomActionPerformed(evt);
+                jTextFielNombreActionPerformed(evt);
             }
         });
-        jTextFielNom.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFielNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFielNomKeyTyped(evt);
+                jTextFielNombreKeyTyped(evt);
             }
         });
-        jPanelPrincipal.add(jTextFielNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 200, -1));
+        jPanelPrincipal.add(jTextFielNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 200, 20));
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -295,7 +303,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jLabel6.setText("Seleccione el destino");
         jPanelPrincipal.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
 
-        jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/agre.png"))); // NOI18N
+        jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar.png"))); // NOI18N
         jButtonAgregar.setToolTipText("Agregar");
         jButtonAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -313,7 +321,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         });
         jPanelPrincipal.add(jButtonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 70, 40));
 
-        jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/actualizar.png"))); // NOI18N
+        jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/actualizar.png"))); // NOI18N
         jButtonActualizar.setToolTipText("Actualizar");
         jButtonActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -331,33 +339,33 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         });
         jPanelPrincipal.add(jButtonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 70, 70, 40));
 
-        jTextFielDir.setBackground(new java.awt.Color(255, 255, 204));
-        jTextFielDir.addActionListener(new java.awt.event.ActionListener() {
+        jTextFielDirección.setBackground(new java.awt.Color(255, 255, 204));
+        jTextFielDirección.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielDirActionPerformed(evt);
+                jTextFielDirecciónActionPerformed(evt);
             }
         });
-        jTextFielDir.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFielDirección.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFielDirKeyTyped(evt);
+                jTextFielDirecciónKeyTyped(evt);
             }
         });
-        jPanelPrincipal.add(jTextFielDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 210, -1));
+        jPanelPrincipal.add(jTextFielDirección, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 210, 20));
 
-        jTextFielCp.setBackground(new java.awt.Color(255, 255, 204));
-        jTextFielCp.addActionListener(new java.awt.event.ActionListener() {
+        jTextFielCódido_postal.setBackground(new java.awt.Color(255, 255, 204));
+        jTextFielCódido_postal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielCpActionPerformed(evt);
+                jTextFielCódido_postalActionPerformed(evt);
             }
         });
-        jTextFielCp.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFielCódido_postal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFielCpKeyTyped(evt);
+                jTextFielCódido_postalKeyTyped(evt);
             }
         });
-        jPanelPrincipal.add(jTextFielCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 200, -1));
+        jPanelPrincipal.add(jTextFielCódido_postal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 200, 20));
 
-        jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/basura.png"))); // NOI18N
+        jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/eliminar.png"))); // NOI18N
         jButtonEliminar.setToolTipText("Eliminar");
         jButtonEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -378,20 +386,20 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         });
         jPanelPrincipal.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 70, 40));
 
-        jTextFielTel.setBackground(new java.awt.Color(255, 255, 204));
-        jTextFielTel.addActionListener(new java.awt.event.ActionListener() {
+        jTextFielTeléfono.setBackground(new java.awt.Color(255, 255, 204));
+        jTextFielTeléfono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielTelActionPerformed(evt);
+                jTextFielTeléfonoActionPerformed(evt);
             }
         });
-        jTextFielTel.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFielTeléfono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFielTelKeyTyped(evt);
+                jTextFielTeléfonoKeyTyped(evt);
             }
         });
-        jPanelPrincipal.add(jTextFielTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, 210, -1));
+        jPanelPrincipal.add(jTextFielTeléfono, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 200, 210, 20));
 
-        jButtonSolicitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/solicitar.png"))); // NOI18N
+        jButtonSolicitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/solicitar.png"))); // NOI18N
         jButtonSolicitar.setToolTipText("Solicitar");
         jButtonSolicitar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -409,7 +417,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jPanelPrincipal.add(jButtonSolicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 170, 70, 40));
 
         fondo.setForeground(new java.awt.Color(51, 51, 51));
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nature-g2f407e47e_1920.jpg"))); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/naturaleza.jpg"))); // NOI18N
         fondo.setOpaque(true);
         jPanelPrincipal.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 970, 570));
 
@@ -425,7 +433,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         });
 
         fileMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        fileMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/menu1.png"))); // NOI18N
+        fileMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/menú.png"))); // NOI18N
         fileMenu.setMnemonic('f');
         fileMenu.setText("Ménu");
         fileMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -510,7 +518,8 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // boton salir cierra el programa 
-        System.exit(0);
+       // System.exit(0);
+       confirmarSalida();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void saveMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMenuItemMouseClicked
@@ -546,33 +555,34 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
          * rellenados los campos, ya que a traves del método obtenerUnDestino 
          * obtiene los datos y los campara
          */
-        if (jTextFielCp.getText().equals("") || 
-                jTextFielDir.getText().equals("") 
-                || jTextFielNom.getText().equals("") 
-                || jTextFielTel.getText().equals("")) {
+        if (jTextFielCódido_postal.getText().equals("") || 
+                jTextFielDirección.getText().equals("") 
+                || jTextFielNombre.getText().equals("") 
+                || jTextFielTeléfono.getText().equals("")) {
             JOptionPane.showMessageDialog(null, 
                     "Debe estar rellenado todos los cuadros de texto");
         } else {
-            Destino dest = DestinoC.obtenerUnDestino(listaDestino,
-                    Integer.parseInt(jTextFielCp.getText()));
+            Destino dest = DestinoControler.obtenerUnDestino(listaDestino,
+                    Integer.parseInt(jTextFielCódido_postal.getText()));
 
             if (dest == null) {
                 Destino destino = new Destino();
-                if (jTextFielNom.getText().equals("")
-                        || jTextFielCp.getText().equals("")
-                        || jTextFielDir.getText().equals("")
-                        || jTextFielTel.getText().equals("")) {
+                if (jTextFielNombre.getText().equals("")
+                        || jTextFielCódido_postal.getText().equals("")
+                        || jTextFielDirección.getText().equals("")
+                        || jTextFielTeléfono.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Rellena todos los campos",
                             "ADVERTETNCIA", JOptionPane.WARNING_MESSAGE);
                 }
                 destino.setIdlugar(listaDestino.size() + 1);
-                destino.setNombre(jTextFielNom.getText());
-                destino.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
-                destino.setDireccion(jTextFielDir.getText());
-                destino.setTelefono(jTextFielTel.getText());
-
-                DestinoC.crearDestino(listaDestino, destino);
-                DestinoC.mostrarDestino(listaDestino, modelo);
+                destino.setNombre(jTextFielNombre.getText());
+                destino.setCodigoPost(Integer.parseInt
+                (jTextFielCódido_postal.getText()));
+                destino.setDireccion(jTextFielDirección.getText());
+                destino.setTelefono(jTextFielTeléfono.getText());
+                // crea un destino y le pasa los parámetros de destino
+                DestinoControler.crearDestino(listaDestino, destino);
+                DestinoControler.mostrarDestino(listaDestino, modelo);
             } else {
                 JOptionPane.showMessageDialog(null,"El destino ya existe");
             }
@@ -581,13 +591,13 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
-    private void jTextFielNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielNomActionPerformed
+    private void jTextFielNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielNomActionPerformed
+    }//GEN-LAST:event_jTextFielNombreActionPerformed
 
-    private void jTextFielDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielDirActionPerformed
+    private void jTextFielDirecciónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielDirecciónActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielDirActionPerformed
+    }//GEN-LAST:event_jTextFielDirecciónActionPerformed
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
 
@@ -596,27 +606,27 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
          * jtexfield están rellenados si no manda una mensaje de advertencia que 
          * los campos no están rellenados
          * */
-        if (jTextFielCp.getText().equals("")
-                || jTextFielNom.getText().equals("")
-                || jTextFielDir.getText().equals("")
-                || jTextFielTel.getText().equals("")) {
+        if (jTextFielCódido_postal.getText().equals("")
+                || jTextFielNombre.getText().equals("")
+                || jTextFielDirección.getText().equals("")
+                || jTextFielTeléfono.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Rellena todos los campos");
 
         } else {
             Destino des = new Destino();
             des.setIdlugar(des.getIdlugar());
 
-            des.setNombre(jTextFielNom.getText());
-            des.setDireccion(jTextFielDir.getText());
-            des.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
-            des.setTelefono(jTextFielTel.getText());
-            DestinoC.actualizarDestino(listaDestino, des);
-            DestinoC.mostrarDestino(listaDestino, modelo);
+            des.setNombre(jTextFielNombre.getText());
+            des.setDireccion(jTextFielDirección.getText());
+            des.setCodigoPost(Integer.parseInt(jTextFielCódido_postal.getText()));
+            des.setTelefono(jTextFielTeléfono.getText());
+            DestinoControler.actualizarDestino(listaDestino, des);
+            DestinoControler.mostrarDestino(listaDestino, modelo);
             //se encarga de que dentro de la tabla se pueda editar 
-            jTextFielNom.setEditable(true);
-            jTextFielCp.setEditable(false);
-            jTextFielDir.setEditable(true);
-            jTextFielTel.setEditable(true);
+            jTextFielNombre.setEditable(true);
+            jTextFielCódido_postal.setEditable(false);
+            jTextFielDirección.setEditable(true);
+            jTextFielTeléfono.setEditable(true);
             //método que llama mostrar destino se encarga de mostrar los datos
             mostrarDestino();
         }
@@ -625,18 +635,18 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         //botton eliminar
-        if (jTextFielNom.getText().equals("")
-                || jTextFielCp.getText().equals("")
-                || jTextFielDir.getText().equals("")
-                || jTextFielTel.getText().equals("")) {
+        if (jTextFielNombre.getText().equals("")
+                || jTextFielCódido_postal.getText().equals("")
+                || jTextFielDirección.getText().equals("")
+                || jTextFielTeléfono.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Seleccione un campo de la tabla",
                     "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
         } else {
             //Realiza la comparación de los datos 
-            String nombre = jTextFielNom.getText();
+            String nombre = jTextFielNombre.getText();
             //Hace la llamada del método eliminarDestino y mostrar el destino
-            DestinoC.eliminarDestino(listaDestino, nombre);
-            DestinoC.mostrarDestino(listaDestino, modelo);
+            DestinoControler.eliminarDestino(listaDestino, nombre);
+            DestinoControler.mostrarDestino(listaDestino, modelo);
         }
         //hace la llamada al método limpiarDestino
         limpiarDestino();
@@ -647,11 +657,11 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         /*Actualizar: con método setEditable se puede seleccionar los datos de
         la tabla para obtener los atributos de la clase Destino
         */
-        jTextFielCp.setEditable(false);
-        jTextFielNom.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
-        jTextFielCp.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
-        jTextFielDir.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
-        jTextFielTel.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
+        jTextFielCódido_postal.setEditable(false);
+        jTextFielNombre.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
+        jTextFielCódido_postal.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
+        jTextFielDirección.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
+        jTextFielTeléfono.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
 
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -660,43 +670,46 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_jButtonEliminarMouseClicked
 
     private void jButtonSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSolicitarActionPerformed
-        
+        /*
+        se usa un switch case para que si una de las opciones es correcto hace 
+        lo que corresponde de cada caso
+        */
         switch (caseVentana) {
             case 1:
-                if (jTextFielNom.getText().equals("")
-                || jTextFielCp.getText().equals("")
-                || jTextFielDir.getText().equals("")
-                || jTextFielTel.getText().equals("")) {
+                if (jTextFielNombre.getText().equals("")
+                || jTextFielCódido_postal.getText().equals("")
+                || jTextFielDirección.getText().equals("")
+                || jTextFielTeléfono.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "seleccione un campo de la tabla",
                     "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
         } else {
             // solicitar
             Destino solic = new Destino();
-            solic.setNombre(jTextFielNom.getText());
-            solic.setDireccion(jTextFielDir.getText());
-            solic.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
-            solic.setTelefono(jTextFielTel.getText());
+            solic.setNombre(jTextFielNombre.getText());
+            solic.setDireccion(jTextFielDirección.getText());
+            solic.setCodigoPost(Integer.parseInt(jTextFielCódido_postal.getText()));
+            solic.setTelefono(jTextFielTeléfono.getText());
             new TransporteView(solic,1).setVisible(true);
             this.hide();
         }
                 break;
             case 2:
-                 if (jTextFielNom.getText().equals("")
-                || jTextFielCp.getText().equals("")
-                || jTextFielDir.getText().equals("")
-                || jTextFielTel.getText().equals("")) {
+                 if (jTextFielNombre.getText().equals("")
+                || jTextFielCódido_postal.getText().equals("")
+                || jTextFielDirección.getText().equals("")
+                || jTextFielTeléfono.getText().equals("")) {
             JOptionPane.showMessageDialog(null, 
                     "eleccione un campo de la tabla",
                     "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
         } else {
             /*
-            solicitar envai los los datos la clase Destino
+            solicitar envía los los datos la clase Destino
             */
             Destino solic = new Destino();
-            solic.setNombre(jTextFielNom.getText());
-            solic.setDireccion(jTextFielDir.getText());
-            solic.setCodigoPost(Integer.parseInt(jTextFielCp.getText()));
-            solic.setTelefono(jTextFielTel.getText());
+            solic.setNombre(jTextFielNombre.getText());
+            solic.setDireccion(jTextFielDirección.getText());
+            solic.setCodigoPost(Integer.parseInt(jTextFielCódido_postal.getText()));
+            solic.setTelefono(jTextFielTeléfono.getText());
             new Solicitar(transporte, solic).setVisible(true);
             this.hide();
         }
@@ -752,7 +765,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jButtonSolicitar.setBackground(Color.white);
     }//GEN-LAST:event_jButtonSolicitarMouseExited
 
-    private void jTextFielNomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielNomKeyTyped
+    private void jTextFielNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielNombreKeyTyped
         /**
          * método que válida Nombre para que solo ingrese letras
          */
@@ -763,13 +776,13 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                     "solo se permite letras en este campo",
                     "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_jTextFielNomKeyTyped
+    }//GEN-LAST:event_jTextFielNombreKeyTyped
 
-    private void jTextFielDirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielDirKeyTyped
+    private void jTextFielDirecciónKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielDirecciónKeyTyped
        
-    }//GEN-LAST:event_jTextFielDirKeyTyped
+    }//GEN-LAST:event_jTextFielDirecciónKeyTyped
 
-    private void jTextFielTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielTelKeyTyped
+    private void jTextFielTeléfonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielTeléfonoKeyTyped
         /**
          * válida el Jtexfild Nombre para que solo se ingrese numeros
          */
@@ -780,19 +793,21 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                     "solo se permite números en este campo", "ADVERTENCIA",
                     JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_jTextFielTelKeyTyped
+    }//GEN-LAST:event_jTextFielTeléfonoKeyTyped
 
-    private void jTextFielTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielTelActionPerformed
+    private void jTextFielTeléfonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielTeléfonoActionPerformed
 
 
-    }//GEN-LAST:event_jTextFielTelActionPerformed
+    }//GEN-LAST:event_jTextFielTeléfonoActionPerformed
 
-    private void jTextFielCpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielCpActionPerformed
+    private void jTextFielCódido_postalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielCódido_postalActionPerformed
 
-    }//GEN-LAST:event_jTextFielCpActionPerformed
+    }//GEN-LAST:event_jTextFielCódido_postalActionPerformed
 
-    private void jTextFielCpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielCpKeyTyped
-        // válida el jtexfieldCp para que solo se ingrese digitos
+    private void jTextFielCódido_postalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFielCódido_postalKeyTyped
+        /* válida el jtexfieldCódigo postal para que solo se ingrese digitos
+        */
+        
         char letra = evt.getKeyChar();
         if (Character.isLetter(letra)) {
             evt.consume();
@@ -800,17 +815,21 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                     "solo se permite digitos en este campo",
                     "ADVERTEMCIA", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_jTextFielCpKeyTyped
+    }//GEN-LAST:event_jTextFielCódido_postalKeyTyped
 
     private void menuBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBarMouseDragged
-        //método para obtener el eje de las x y y
+        /**
+         * método para obtener el eje de las x y y
+         */
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x- xMuase, y- yMouse);
     }//GEN-LAST:event_menuBarMouseDragged
 
     private void menuBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBarMousePressed
-        // método que obtiene la posicipon de las x y y del mause
+        /*
+        método que obtiene la posicipon de las x y y del mause
+        */
         xMuase = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_menuBarMousePressed
@@ -843,10 +862,10 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextFielCp;
-    private javax.swing.JTextField jTextFielDir;
-    private javax.swing.JTextField jTextFielNom;
-    private javax.swing.JTextField jTextFielTel;
+    private javax.swing.JTextField jTextFielCódido_postal;
+    private javax.swing.JTextField jTextFielDirección;
+    private javax.swing.JTextField jTextFielNombre;
+    private javax.swing.JTextField jTextFielTeléfono;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
